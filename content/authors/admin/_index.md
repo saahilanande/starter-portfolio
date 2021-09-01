@@ -1,26 +1,26 @@
 ---
 # Display name
-title: Nelson Bighetti
+title: Saahil Anande
 
 # Is this the primary user of the site?
 superuser: true
 
 # Role/position/tagline
-role: Professor of Artificial Intelligence
+role: MS in Computer Science student at The University of Texas at Arlington
 
 # Organizations/Affiliations to show in About widget
 organizations:
-- name: Stanford University
-  url: https://www.stanford.edu/
+- name: The University of Texas at Arlington
+  url: https://www.uta.edu/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: A Master of Science in Computer Science candidate with a knack for problem-solving, passionate about developing solutions using and learning the latest object-oriented programming techniques and software engineering methodologies.
 
 # Interests to show in About widget
 interests:
 - Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
+- Cloud Computing
+- Big data
 
 # Education to show in About widget
 education:
