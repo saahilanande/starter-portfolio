@@ -30,31 +30,31 @@ experience:
     date_end: ''
     description: |2-
   
-            • Proctoring 120+ students, exam papers, and weekly assignment evaluation
+            • Proctoring 60+ students, exam papers, and weekly assignment evaluation
  
+  - title: Delivery Engineer
+    company: CellBeans Healthcare Informatics
+    company_url: 
+    location: Pune, India
+    date_start: '2020-02-01'
+    date_end: '2020-09-01'
+    description: Implementation and setup of hospital management system on client site, managing and developing hospital database.
+
+  
   - title: Junior Software developer
     company: Annet technologies
-    company_url: 
-    location: Arlington, Texas
-    date_start: '2021-04-20'
-    date_end: ''
-    description: Assisted in projects such as Team-Travel Expense Administration & Management, “TAC” and “Ras Al Khaimah Department of Civil Aviation (RAKDCA) given to the SharePoint department.
-  
-  - title: Intern
-    company: CureAssist
-    company_url: 'https://www.cureassist.co/'
+    company_url:
     location: Estonia (remote)
     date_start: '2020-06-17'
     date_end: '2020-08-17'
     description: |2-
 
         
-        • Successfully built Dialogflow based chatbot for Covid Self Assessment
+        • Assisted in projects such as Team-Travel Expense Administration & Management, “TAC” and “Ras Al Khaimah Department of Civil Aviation (RAKDCA) given to the SharePoint department
 
-        • Successfully built Dialogflow based chatbot for patient appointment booking
+        • Learnt and used technologies such as the SharePoint Framework, Client Side Object Module, Server Side Object Module, Rest apis
 
-        • Integrated chatbot with backend nodejs based APIs and MongoDB db for
-          seamless integration with CureAssist app.
+        • Worked on project “Task management system” which is based on scheduling and managing systems trainings and its attendance using SharePoint timerjob and WSP.
 
 design:
   columns: '2'
