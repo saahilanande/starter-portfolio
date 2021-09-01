@@ -22,23 +22,39 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
-  - title: Graduate Teaching Assistant
+  - title: Student Assistant
     company: The University of Texas at Arlington
-    company_url: ''
-    company_logo: org-gc
-    location: Arlinton, Texas
-    date_start: '2021-09-01'
-    date_end: 'Present'
-    description: Proctoring 120+ students, exam papers, and weekly assignment evaluation.
+    company_url: 
+    location: Arlington, Texas
+    date_start: '2021-04-26'
+    date_end: ''
+    description: |2-
+  
+            • Student Assistant at the Office of Information Technology
+ 
+  - title: Marketing Officer
+    company: Engineering Student's Council at UTA
+    company_url: 
+    location: Arlington, Texas
+    date_start: '2021-04-20'
+    date_end: ''
+    description:  
+  
+  - title: Intern
+    company: CureAssist
+    company_url: 'https://www.cureassist.co/'
+    location: Estonia (remote)
+    date_start: '2020-06-17'
+    date_end: '2020-08-17'
+    description: |2-
+
         
-  - title: Professor of Semiconductor Physics
-    company: University X
-    company_url: ''
-    company_logo: org-x
-    location: California
-    date_start: '2016-01-01'
-    date_end: '2020-12-31'
-    description: Taught electronic engineering and researched semiconductor physics.
+        • Successfully built Dialogflow based chatbot for Covid Self Assessment
+
+        • Successfully built Dialogflow based chatbot for patient appointment booking
+
+        • Integrated chatbot with backend nodejs based APIs and MongoDB db for
+          seamless integration with CureAssist app.
 
 design:
   columns: '2'
