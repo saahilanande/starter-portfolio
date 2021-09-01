@@ -22,28 +22,29 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
-  - title: CEO
-    company: GenCoin
-    company_url: ''
+  - title: Graduate Teaching Assistant
+    company: The University of Texas at Arlington
     company_logo: org-gc
-    location: California
-    date_start: '2021-01-01'
-    date_end: ''
-    description: |2-
-        Responsibilities include:
+    location: Arlinton, Texas
+    date_start: '2021-09-01'
+    date_end: 'Present'
+    description: Proctoring 120+ students, exam papers, and weekly assignment evaluation.
         
-        * Analysing
-        * Modelling
-        * Deploying
-        
-  - title: Professor of Semiconductor Physics
-    company: University X
-    company_url: ''
+  - title: Junior Software developer
+    company: Annet technologies
     company_logo: org-x
-    location: California
-    date_start: '2016-01-01'
-    date_end: '2020-12-31'
-    description: Taught electronic engineering and researched semiconductor physics.
+    location: Mumbai, India
+    date_start: '2018-08-01'
+    date_end: '2019-02-20'
+    description: Assisted in projects such as Team-Travel Expense Administration & Management, “TAC” and “Ras Al Khaimah Department of Civil Aviation (RAKDCA) given to the SharePoint department.
+
+    - title: Delivery Engineer
+    company: CellBeans Healthcare Informatics
+    company_logo: org-x
+    location: Pune, India
+    date_start: '2020-02-01'
+    date_end: '2020-09-01'
+    description: Implementation and setup of hospital management system on client site, managing and developing hospital database
 
 design:
   columns: '2'
