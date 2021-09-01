@@ -22,23 +22,23 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
-  - title: Student Assistant
+  - title: Graduate Teaching Assistant
     company: The University of Texas at Arlington
     company_url: 
     location: Arlington, Texas
-    date_start: '2021-04-26'
+    date_start: '2021-09-01'
     date_end: ''
     description: |2-
   
-            • Student Assistant at the Office of Information Technology
+            • Proctoring 120+ students, exam papers, and weekly assignment evaluation
  
-  - title: Marketing Officer
-    company: Engineering Student's Council at UTA
+  - title: Junior Software developer
+    company: Annet technologies
     company_url: 
     location: Arlington, Texas
     date_start: '2021-04-20'
     date_end: ''
-    description:  
+    description: Assisted in projects such as Team-Travel Expense Administration & Management, “TAC” and “Ras Al Khaimah Department of Civil Aviation (RAKDCA) given to the SharePoint department.
   
   - title: Intern
     company: CureAssist
