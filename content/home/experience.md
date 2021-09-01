@@ -45,7 +45,7 @@ experience:
     date_end: '2020-12-31'
     description: Taught electronic engineering and researched semiconductor physics.
 
-     - title: Graduate Teaching Assistant
+  - title: Graduate Teaching Assistant
     company: The University of Texas at Arlington
     company_logo: org-gc
     location: Arlinton, Texas
@@ -61,7 +61,7 @@ experience:
     date_end: '2019-02-20'
     description: Assisted in projects such as Team-Travel Expense Administration & Management, “TAC” and “Ras Al Khaimah Department of Civil Aviation (RAKDCA) given to the SharePoint department.
 
-    - title: Delivery Engineer
+  - title: Delivery Engineer
     company: CellBeans Healthcare Informatics
     company_logo: org-x
     location: Pune, India
