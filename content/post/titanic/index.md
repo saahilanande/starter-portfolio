@@ -42,6 +42,10 @@ categories:
 
 {{< hl >}} _Switch to dark mode for better readability_ {{< /hl >}}
 
+#### About the Challenge :
+
+we are given 3 files in the data, (1) train.csv, (2) test.csv, and (3) gender_submission.csv. The challenge is to use the Titanic passenger data (name, age, price of ticket, etc) to try to predict who will survive and who will die. We have to use training data set (train.csv) to find pattern that would help us predict whether the passengers in test.csv survived. After exploring the pattern in the data set we submit the best result to the challenge.
+
 #### Hypothesis score : 0.77511
 
 ![png](./score1.png)
@@ -53,16 +57,13 @@ categories:
 
 [Scroll down to view the relevant code snippets, or click here to view the notebook on Kaggle](https://www.kaggle.com/saahilanande/saahildataminingprojecttutorial)
 
-#### My Contribution : 
+#### My Contribution and changes:  
 
-After the first submission of the default code provided by Kaggle I obtained a score of 0.775. To figure out how I could improve this performance I decided to look at other submissions in the competition and browse the web. While doing so I came across [Ken Jee's tutorial on youtube.](https://www.youtube.com/watch?v=I3FBJdiExcg&list=WL&index=1&ab_channel=KenJee) After going through the tutorial I realized I should explore the data and find out if there are any Null values. On doing so I found the category 'Age' had quite a few missing values. I then plotted the values of the category 'Age' on a histogram to see if the values are well-distributed or skewed to one side. On observing the histogram, I realised the values are fairly distributed and hence, I can use the mean of 'Age' to replace the missing values. I then decided to run the model on this updated data. But to my dismay I found that the new score was 0.77272, which was lower than the previous score.
+After the first submission of the default code provided by Kaggle, I obtained a score of 0.77511. To figure out how I could improve this performance I decided to look at other submissions in the competition and browse the web. While doing so I came across [Ken Jee's tutorial on youtube.](https://www.youtube.com/watch?v=I3FBJdiExcg&list=WL&index=1&ab_channel=KenJee). After going through the tutorial and other submissions I realize that dealing with the null values in the data set could significantly improve the score of the submission, So I explore the data set further and found out that the columns which have Null values were (1)'Age', (2)'Cabin' and (3)'Embarked'. After checking the data type and what value does each category have, I followed the key things taught in the data mining basics, how to replace the missing values.
 
-In my next attempt to increase the score I thought of using a different model for prediction. After seeing fair results with the K Nearest Neighbors (KNN) model in [Ken Jee's Kaggle notebook ](https://www.kaggle.com/kenjee/titanic-project-example) I decided to implement it in my notebook. But this time again I noticed a further decrease in my score getting a score of 0.72727. So i attempted to adjust the parameters of KNN model, adjusting n-neighbors=3 which caused a further dip in my score fetching me a 0.70574.
+Since the data type of 'Age' was float I decided to take the mean of the entire column and replace the missing values of age with the mean of the age. Since the data type of 'Embarked' was object and only 2 values were missing I replaced the missing value with the most repeated value in that category which was 'S'. Now in the column Cabin, the data type was object and there were lots of missing values so I decided to not include that feature in the random forest classifier.
 
-Hoping to get better results, I tried using a Support Vector Machine algorithm (SVC in SKLearn), this time getting an even lower score of 0.66267!
-In another attempt I tried to implement the Voting Classifier on the Random Forest Classifier, KNN, and SVM models. Doing this got me an increase in my score, getting me 0.77272 which was still lower than the first submission.
-
-So, I went back to the data to explore a little more. I replaced the one missing null value in the 'Fare' attribute. Plotting a histogram of the fare attribute revealed that the data was skewed to one side and therefore needed to be normalised. I then created a new attribute named 'norm_fare' and added the normalised values of the fare to it. I added 'norm_fare' to the list of features to train the data. I chose Random Forest Classifier as the model this time since it fetched the best results. On running the model this time, I was finally able to increase my score to 0.78468. A small change in score but I did learn from it nevertheless.
+Similarly, i explored the test data set for Null values and found out that the columns which have Null value were (1)'Age', (2)'Cabin' and (3)'Fair'. For 'Age' I chose to replace the missing value with Mean and since there was only 1 missing value for 'Fair' i decided to replace the missing value with the mode. After running the model with this change and submitting it I was able to increase my score to 0.78708. A small change in score but I did learn from it nevertheless.
 
 
 
