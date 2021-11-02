@@ -48,7 +48,7 @@ The CIFAR-10 data consists of 60,000 (32×32) color images in 10 classes, with 6
 
 To begin with I started with [PyTorch's Tutorial](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html#sphx-glr-beginner-blitz-cifar10-tutorial-py) and then proceeded to make multiple changes to the model in an attempt to increase the test accuracy. I tried different things and came up with 4 different approaches(in addition to the existing default code) to tackle this problem.
 
-[Here](https://github.com/rohanmandrekar/Cifar-10-/blob/master/best_attempt(model7).ipynb) is a link to the jupyter notebook with the best results.
+[Here](https://github.com/saahilanande/cifar10/blob/main/datamining_assignment_1).ipynb) is a link to the jupyter notebook with the best results.
 
 Initial results when started with Pytorch's Tutorial: Test Accuracy 55% ; loss
 
@@ -128,13 +128,10 @@ STEP 4: Define a Convolutional Neural Network.
 Let's Improve Accuracy of our model
 
 
-#### Here is a graph comparing the Training accuracy for modles 0 - 4 :
+#### Here is a graph comparing the Test accuracy for modles 0 - 4 :
 
-![png](./trainingacc.png)
+![png](./attempts.png)
 
-#### Here is a comparision of Test accuracy for each model :
-
-![png](./testacc.png)
 
 #### Here is a plot showing the trend in loss for each model :
 
@@ -151,6 +148,8 @@ Let's Improve Accuracy of our model
 
 The first model was the default model provided by PyTorch. This model set the base for this project. My goal was to experiment with Network topology and other hyperparameters to improve the performance (increase test accuracy).
 This model consisted of 2 Convolutional layers, 3 fully connected layers, a max pool layer which was applied to each of the convolutional layers. Before applying the max pool layer a Relu activation function was applied to the convolutional layers.
+
+![png](./con.png)
 
 The **Convolutional layer** This layer is the first layer that is used to extract the various features from the input images. In this layer, the mathematical operation of convolution is performed between the input image and a filter of a particular size MxM. By sliding the filter over the input image, the dot product is taken between the filter and the parts of the input image with respect to the size of the filter (MxM).
 
@@ -170,7 +169,7 @@ In this, the input image from the previous layers are flattened and fed to the F
 
 ### Model 1:
 
-#### Test Accuracy : 44% ; Loss : 1.503
+#### Test Accuracy : 44% ; Loss : 1.312
 
 To start with I tried to Make changes to the fully connected layer as its the easiest to manage. First i tried to change the values of the existing FC layers then decided to add one extra Fc layer to see if it has any improvement on the previous model, But the Accuracy decreased by 1%. 
 
@@ -186,7 +185,7 @@ To Further test the fully connected layer I added 2 more layers to the previous 
 
 ### Model 2:
 
-#### Test Accuracy : 59% ; Loss : 1.234
+#### Test Accuracy : 59% ; Loss : 1.134
 In my next attempt I tried to make the model more complex by adding a Convolutional layer. This increase the Accuracy to 54% but it was still less than the base model. Since it was showing improvement, I Increase the value of the layers and change the kernel size to 3.
 
 ![png](./model2.1.png)
@@ -205,7 +204,7 @@ And finally The accuracy I got was the best till now. 59% Accuracy with decrease
 
 ### Model 3:
 
-#### Test Accuracy : 64% ; Loss : 1.105
+#### Test Accuracy : 64% ; Loss : 1.023
 
 After adding one convolution layer the accuracy increase but it was mainly due to the scaling values and the kernel size, so in this attempt i decided to drop the added convolution layer and decided to change the scaling and kernel.
 
