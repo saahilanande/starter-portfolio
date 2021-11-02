@@ -48,13 +48,13 @@ The CIFAR-10 data consists of 60,000 (32×32) color images in 10 classes, with 6
 
 To begin with I started with [PyTorch's Tutorial](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html#sphx-glr-beginner-blitz-cifar10-tutorial-py) and then proceeded to make multiple changes to the model in an attempt to increase the test accuracy. I tried different things and came up with 4 different approaches(in addition to the existing default code) to tackle this problem.
 
-[Here](https://github.com/saahilanande/cifar10/blob/main/datamining_assignment_1).ipynb) is a link to the jupyter notebook with the best results.
+[Here](https://github.com/saahilanande/cifar10/blob/main/datamining_assignment_1.ipynb) is a link to the jupyter notebook with the best results.
 
-Initial results when started with Pytorch's Tutorial: Test Accuracy 55% ; loss
+Initial results when started with Pytorch's Tutorial: Test Accuracy 55% ; loss 1.086
 
 ![png](./tutorial_prediction.png)
 
-Improved results after changes to Pytorch's Tutorial: Test Accuracy 71% ; loss
+Improved results after changes to Pytorch's Tutorial: Test Accuracy 71% ; loss 0.6942
 
 ![png](./71.png)
 
