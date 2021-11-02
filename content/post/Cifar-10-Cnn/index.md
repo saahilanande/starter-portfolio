@@ -149,7 +149,7 @@ Let's Improve Accuracy of our model
 The first model was the default model provided by PyTorch. This model set the base for this project. My goal was to experiment with Network topology and other hyperparameters to improve the performance (increase test accuracy).
 This model consisted of 2 Convolutional layers, 3 fully connected layers, a max pool layer which was applied to each of the convolutional layers. Before applying the max pool layer a Relu activation function was applied to the convolutional layers.
 
-![png](./con.png)
+![png](./conv.png)
 
 The **Convolutional layer** This layer is the first layer that is used to extract the various features from the input images. In this layer, the mathematical operation of convolution is performed between the input image and a filter of a particular size MxM. By sliding the filter over the input image, the dot product is taken between the filter and the parts of the input image with respect to the size of the filter (MxM).
 
@@ -231,9 +231,7 @@ I further tried to increase the epochs to 15 but noticed that the loss was not f
 
 
 ### Challenges faced:
-Adding another convolutional layer for me was the biggest challenge. on my first attempt of adding another convolutional layer I simply changed the input and output parameters not realising that the required dimensions after flattening would also need to be changed. After facing errors after multiple trials i stumbled upon [Python Engineer's Tutorial on YouTube](https://www.youtube.com/watch?v=pDdP0TFzsoQ&t=882s&ab_channel=PythonEngineer) which perfectly explained how the dimesions of the image changes after applying each convolutional and MaxPool layer. Below is a screenshot from his video that explains the formula used to find the actual dimensions of the image after passing through the convolutional layer.
-
-![png](./ytss.png)
+Adding another convolutional layer for me was the biggest challenge. on my first attempt of adding another convolutional layer I simply changed the input and output parameters not realising that the required dimensions after flattening would also need to be changed. After facing errors after multiple trials i stumbled upon [Python Engineer's Tutorial on YouTube](https://www.youtube.com/watch?v=pDdP0TFzsoQ&t=882s&ab_channel=PythonEngineer) which perfectly explained how the dimesions of the image changes after applying each convolutional and MaxPool layer.
 
 
 ### My Observations:
