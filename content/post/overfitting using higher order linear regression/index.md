@@ -65,6 +65,7 @@ import pandas as pd
 
 ### Generate 20 data pairs (X, Y) using y = sin(2*pi*X) + 0.1 * N 
 
+We will generate 20 data points (x,y) using y = sin(2*pi*X) + 0.1 * N , X will be generated using uniform distribution and  N from the normal gaussian distribution. Further, we will divide them into 10 training set and 10 testing set
 
 ```python
 Data=[]
@@ -125,6 +126,8 @@ print('TEST_Y',test_y)
 
 
 ### Using root mean square error, find weights of polynomial regression for order is 0, 1, 3, 9
+
+Using pytorch and loss function we would generate the weights and adjust the weight in each iteration when the loss is decreasing.
 
 
 ### POLYNOMIAL REGRESSION ORDER ZERO ###
@@ -201,6 +204,10 @@ plt.show()
 
 ![png](./order0.png)
 
+### Observation
+
+We can observe that when m = 0 we get a constant function which is represented by blue line. As we can see that blue line is not a good approximation for the underling scatter points of original sin function. This would lead to large error on training set so it cannot be good approximation to test set. The analysis of the graph shows the model is prone to underfit.Underfitting is the phenomenon that occurs when a model is not complex enough to actually model the true function 
+
 ### POLYNOMIAL REGRESSION ORDER ONE ### 
 
 ```python
@@ -247,6 +254,11 @@ for epoch in range(100):
     predict (before training) 0.47648692943445026 tensor([-0.2975], grad_fn=<AddBackward0>)
     
 ![png](./order1.png)
+
+### observation
+
+We can observe that when m = 1 we get a polynomial equation y(x,w) = W0 + w1x where w0 is our baise and w1 is the slope of the estimated signal which is represented by blue line. We can see that the line is still not a good approximation of the underline scatter points of original sin function. This would also give high error on the training data and the model is prone to underfit.
+
 
 ### POLYNOMIAL REGRESSION ORDER THREE ### 
 
@@ -314,6 +326,10 @@ for epoch in range(100):
     predict (before training) 0.47648692943445026 tensor([-0.1633], grad_fn=<AddBackward0>)
     
 ![png](./order3.png)
+
+### Observation
+
+We can observe that when m = 3 we get a polynomial equation y(x,w) = W0 + w1x + w2x^2 + w3x^3. So now we can see that the blue curve is starting to be quit a good approximation to the underline scatter points of original sin function. Even though there are error on the training data but these error would be less that the error by the linear curve and constant curve.
 
 ### POLYNOMIAL REGRESSION ORDER NINE ### 
 
@@ -398,6 +414,10 @@ for epoch in range(100):
 
 
 ![png](./order9.png)
+
+### Observation
+
+Now if we keep on increasing the order of polynomial we should get better approximation. But if we increase the order to complex, Here M = 9 we can see that the blue curve starts to oscillate on each of the training data. so if we start increasing the order the error on the training set exactly becomes zero so the blue curve would give perfect fit for the training data points. But this is would not be good approximation of the under line true sin function and where ever we plug in a new data point it would fail to produce correct prediction. The model would hence be overfit, Overfitting is the opposite of underfitting, where a model is too complex for the data being modeled and thus additional artifacts such as noise may end up affecting the prediction more than the true function
 
 
 ### Displaying weights
@@ -485,185 +505,19 @@ plt.show()
 ```
 ![png](./100plots.png)
 
-### Now we will regularize using the sum of weights
+### observation
 
-
-```python
-from sklearn.linear_model import Ridge
-#https://inria.github.io/scikit-learn-mooc/python_scripts/linear_models_regularization.html
-def l2ridge(x2,y2,alpha):
-  # x2=x2.reshape(100,1)
-  # y2=y2.reshape(100,1)  
-  # polynomial_features3=PolynomialFeatures(degree=9)
-  ridge = make_pipeline(PolynomialFeatures(degree=9),
-                      Ridge(alpha=alpha))
-  # transform=polynomial_features3.fit_transform(x2)
-  # ridge=Ridge(alpha=alpha)
-  ridge.fit(x2,y2)
-  result=ridge.predict(x2)
-  return result
-
-```
-
-### Draw chart for lambda is 1, 1/10, 1/100, 1/1000, 1/10000, 1/100000
-
-
-```python
-y2new1=l2ridge(x2,y2,1)
-plt.scatter(x2,y2)
-plt.plot(xnew,y2new1,c='r')
-plt.title('lambda=1')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.show()
-
-y2new10=l2ridge(x2,y2,1/10)
-plt.scatter(x2,y2)
-plt.plot(xnew,y2new10,c='r')
-plt.title('lambda=1/10')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.show()
-
-y2new100=l2ridge(x2,y2,1/100)
-plt.scatter(x2,y2)
-plt.plot(xnew,y2new100,c='r')
-plt.title('lambda=1/100')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.show()
-
-y2new1000=l2ridge(x2,y2,1/1000)
-plt.scatter(x2,y2)
-plt.plot(xnew,y2new1000,c='r')
-plt.title('lambda=1/1000')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.show()
-
-y2new10000=l2ridge(x2,y2,1/10000)
-plt.scatter(x2,y2)
-plt.plot(xnew,y2new10000,c='r')
-plt.title('lambda=1/10000')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.show()
-
-y2new100000=l2ridge(x2,y2,1/100000)
-plt.scatter(x2,y2)
-plt.plot(xnew,y2new100000,c='r')
-plt.title('lambda=1/100000')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.show()
-
-y2new1000000000=l2ridge(x2,y2,1/1000000000)
-plt.scatter(x2,y2)
-plt.plot(xnew,y2new1000000000,c='r')
-plt.title('lambda=1/1000000000')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.show()
-
-
-```
-
-
-![png](./overfitting_22_0.png)
-
-
-
-![png](./overfitting_22_1.png)
-
-
-
-![png](./overfitting_22_2.png)
-
-
-
-![png](./overfitting_22_3.png)
-
-
-
-![png](./overfitting_22_4.png)
-
-
-
-![png](./overfitting_22_5.png)
-
-
-
-![png](./overfitting_22_6.png)
-
-
-### Now draw test  and train error according to lamda 
-
-
-```python
-regularised_train_error=[]
-regularised_test_error=[]
-alphas=[1,1/10,1/100,1/1000,1/10000,1/100000,1/1000000,1/10000000,1/100000000,1/1000000000]
-for alpha in alphas:
-  
-  # polynomial_features = PolynomialFeatures(degree = i)
-  # x_transf=polynomial_features.fit_transform(train_x)
-    
-  # model=LinearRegression()
-  # model.fit(x_transf,train_y)
-
-  # y_new=model.predict(x_transf)
-  ridge = make_pipeline(PolynomialFeatures(degree=9),
-                      Ridge(alpha=alpha))
-  ridge.fit(train_x,train_y)
-  ynew=ridge.predict(train_x)
-
-  #training error
-  rmse=np.sqrt(mean_squared_error(train_y,ynew))
-  #test error
-  y2newtest=ridge.predict(test_x)
-  rmse2=np.sqrt(mean_squared_error(test_y,y2newtest))
-
-  regularised_train_error.append(rmse)
-  regularised_test_error.append(rmse2)
-
-
-print(train_errors)
-print(test_errors)
-logalpha=[np.log(1),np.log(1/10),np.log(1/100),np.log(1/1000),np.log(1/10000),np.log(1/100000),np.log(1/1000000),np.log(1/10000000),np.log(1/100000000),np.log(1/1000000000)]
-plt.plot(logalpha,regularised_train_error,label = 'train error', color = 'blue')
-plt.plot(logalpha,regularised_test_error,label = 'test error', color = 'red')
-plt.title('train vs test error for regularized ')
-plt.xlabel('ln(lambda)')
-plt.ylabel('error')
-plt.legend()
-plt.show()
-```
-
-    [0.6718839839061639, 0.3949820650144116, 0.362185294183138, 0.15509957090719734, 0.1257616863153283, 0.11667502425249053, 0.11033312782105564, 0.05139960801508042, 0.045984709291081345, 2.7116532461094445e-08]
-    [0.6757748998054574, 0.5130767396803901, 0.6430332529224712, 0.40209758302055293, 0.7368997594930184, 0.3663105838641724, 0.5101256658169809, 6.711239341941148, 37.9374792351037, 5445.918996816799]
-    
-
-
-![png](./overfitting_24_1.png)
-
-
-### Based on best performance my model will be the one with *lambda 1/1000000* because here the difference between train and test error is almost negligible, it has lowest test error compared to other models, and the error is lesser than the error of the model with lambda 1/1000000000.
-
+Now if we increase the amount of data set, graph above that the model takes on a form much more similar to the sin function than previously with less data points.
 
 
 
 ### Challenges faced:
 
-Initially I struggled with implimenting polynomial regression, but [this blog](https://moonbooks.org/Articles/How-to-implement-a-polynomial-linear-regression-using-scikit-learn-and-python-3-/) helped me understand the concept and how to implement it.
+Initially I struggled with implimenting gradient descent on different polynomial order. I started with manually writing the gradient decent d loss by d w for each polynomial order, but [this blog]https://discuss.pytorch.org/t/rmse-loss-function/16540 and lecture slides (Lecture 04_ Back-propagation and PyTorch autograd.pdf) helped me understand the concept and how to implement it.
 
 While adding the weights of the polynomials to the pretty table, i had to pad zeroes to it, to make all of them of the same length. But doing so messed up the weights of all the polynomials because it was a referenced variable. Using the .copy() function solved that problem for me.
 
-I also struggled while trying to plot the graph for 'Train vs test error' for polynomial regression of each order. My [TA](https://www.linkedin.com/in/ashaduzzaman-rubel-mondol) helped me out by pointing out where I went wrong.
 
-### My Observations:
-
-While performing L2(Ridge) Regularization I observed that overfitting reduced drastically as evident by the graph shown below.
-![png](./overfitting_24_1.png)
 
 Doing this project helped clarify my concepts of overfitting and discover a way to prevent it from happening.
 
@@ -687,8 +541,8 @@ Doing this project helped clarify my concepts of overfitting and discover a way 
 
 [8] https://www.geeksforgeeks.org/creating-tables-with-prettytable-library-python/
 
-[9] https://inria.github.io/scikit-learn-mooc/python_scripts/linear_models_regularization.html
-
+[9] https://discuss.pytorch.org/t/rmse-loss-function/16540
+l
 
 
 
