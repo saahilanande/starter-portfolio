@@ -3,7 +3,7 @@ title: Overfitting using higher order linear regression
 subtitle: The goal of this project is to learn about the concept of overfitting using the Higher order linear regression
 
 # Summary for listings and search engines
-summary: Overfitting using higher order linear regression ; linear regression using scikitlearn ; linear regression using scikit-learn 
+summary: Overfitting using higher order linear regression ; Gradient decent using pytorch 
 
 # Link this post with a project
 projects: []
@@ -55,382 +55,389 @@ If overtraining or model complexity results in overfitting, then a logical preve
 
 The goal of this project was to learn about the concept of overfitting using higher order linear regression.
 
-Here is the link to the [Jupyter Notebook](https://github.com/rohanmandrekar/overfitting-using-higher-order-linear-regression/blob/main/overfitting.ipynb)
+Here is the link to the [Jupyter Notebook](https://github.com/saahilanande/overfitdatamining/blob/main/Anande_02.ipynb)
 
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 ```
 
 ### Generate 20 data pairs (X, Y) using y = sin(2*pi*X) + 0.1 * N 
 
 
 ```python
-# rand = np.random.RandomState(20) 
-x=np.random.uniform(0,1,20)
-print('showing values of x : ',x)
-
-plt.hist(x)
-plt.title('values of x')
-plt.show()
-
-N=np.random.normal(size=20)
-print('showing values of N : ',N)
-
-plt.hist(N)
-plt.title('values of N')
-plt.show()
-
+Data=[]
+X=[]
+Y=[]
+for i in range(20):
+  x = np.random.uniform(0,1)
+  n = np.random.normal()
+  y = np.sin(2*3.142*x) + (n * 0.1)
+  X.append(x)
+  Y.append(y)
+  Data.append([x,y])
 ```
 
-    showing values of x :  [0.5065955  0.11412767 0.52634393 0.13430513 0.12141921 0.08835001
-     0.51724323 0.00444379 0.89216408 0.74439585 0.18419264 0.72286723
-     0.59523432 0.95187964 0.27695679 0.43505269 0.95398647 0.33320902
-     0.64479291 0.63948439]
-    
-
-
-![png](./overfitting_2_1.png)
-
-
-    showing values of N :  [ 1.06510773  0.70313713 -0.45806236 -0.78857958 -0.52984258 -0.84608916
-      1.07215212  1.11489313  0.11948624  1.02859731  0.44568169  0.24444456
-     -0.86562125 -0.30561877  1.55021314  0.42619426 -0.56210217  0.62200473
-      1.00214438  0.03476018]
-    
-
-
-![png](./overfitting_2_3.png)
-
-
-
 ```python
-import math
-y=[]
-for i in range(20):
-  # print(i)
-  y.append((math.sin(x[i]*3.142*2))+(N[i])*0.2)
-print('Values of y : ',y)
-
-plt.hist(y)
+plt.hist(Y)
 plt.title('values of y')
 plt.show()
 
-plt.scatter(x,y)
+plt.hist(X)
+plt.title('values of x')
+plt.show()
+
+plt.scatter(X,Y)
 plt.title('all data points')
 plt.xlabel('x')
 plt.ylabel('y')
 plt.show()
 ```
+![png](./siny.png)
 
-    Values of y :  [0.17118032297090804, 0.7978880906437485, -0.256804412241356, 0.5895734297086033, 0.5851231274205356, 0.3578881765720981, 0.10588092999601144, 0.25089975161344724, -0.6024247587809445, -0.7936818285922409, 1.0049247993821213, -0.936714234036075, -0.736825317156796, -0.35814693610200166, 1.2956949620125484, 0.4817575235401146, -0.3967761741926047, 0.9906810553573294, -0.5892503704887883, -0.7618254109321836]
-    
+![png](./sinx.png)
 
-
-![png](./overfitting_3_1.png)
-
-
-
-![png](./overfitting_3_2.png)
-
-
+![png](./sinall.png)
 
 ```python
-train_y=[]
-test_y=[]
-train_x=[]
-test_x=[]
-for i in range(20):
-  if(i%2==0):
-    train_y.append(y[i])
-    train_x.append(x[i])
-  else:
-    test_y.append(y[i])
-    test_x.append(x[i])
+data = np.array(Data)
 
-print("training set for y : ",train_y)
-print("training set for x : ",train_x)
-print("test set for y : ",test_y)
-print("test set for x : ",test_x)
+train_x = np.array(data[:10,:1]).reshape(-1)
+train_y = np.array(data[:10,1:2]).reshape(-1)
+test_x = np.array(data[10:,:1]).reshape(-1)
+test_y = np.array(data[10:,1:2]).reshape(-1)
 
-train_y=np.array(train_y)
-test_y=np.array(test_y)
-train_x=np.array(train_x)
-test_x=np.array(test_x)
-
-train_x=train_x.reshape(-1, 1)
-train_y=train_y.reshape(-1, 1)
-test_x=test_x.reshape(-1,1)
-test_y=test_y.reshape(-1,1)
-
-
-# plt.scatter(x,train_y)
-# plt.title('Training data points')
-# plt.xlabel('x')
-# plt.ylabel('y')
-# plt.show()
-
-# plt.scatter(x,test_set)
-# plt.title('Training data points')
-# plt.xlabel('x')
-# plt.ylabel('y')
-# plt.show()
-
-
+print('TRAIN_X', train_x)
+print('TRAIN_Y', train_y)
+print('TEST_X',test_x)
+print('TEST_Y',test_y)
 ```
 
-    training set for y :  [0.17118032297090804, -0.256804412241356, 0.5851231274205356, 0.10588092999601144, -0.6024247587809445, 1.0049247993821213, -0.736825317156796, 1.2956949620125484, -0.3967761741926047, -0.5892503704887883]
-    training set for x :  [0.5065954955910669, 0.5263439330297612, 0.1214192124185125, 0.5172432303376305, 0.8921640831936551, 0.18419264043506622, 0.5952343194155714, 0.2769567933749101, 0.9539864651937019, 0.6447929132040842]
-    test set for y :  [0.7978880906437485, 0.5895734297086033, 0.3578881765720981, 0.25089975161344724, -0.7936818285922409, -0.936714234036075, -0.35814693610200166, 0.4817575235401146, 0.9906810553573294, -0.7618254109321836]
-    test set for x :  [0.11412767018169767, 0.13430512749327617, 0.08835000898166301, 0.004443786589970133, 0.7443958469077984, 0.7228672268923204, 0.9518796439477641, 0.43505269159444815, 0.33320901738865893, 0.6394843916912883]
-    
+    TRAIN_X [0.58959875 0.6333789  0.68250115 0.80349817 0.86787229 0.15575273
+     0.74868447 0.90652823 0.6286243  0.47648693]
+    TRAIN_Y [-0.42867108 -0.83522043 -0.8565866  -1.01694313 -0.70650818  0.87004055
+     -0.80323613 -0.59228315 -0.75109396  0.40455545]
+    TEST_X [0.59069239 0.04043644 0.53744204 0.22990134 0.10946096 0.5695794
+     0.03354012 0.22669712 0.05717719 0.08498028]
+    TEST_Y [-0.4615664   0.27488626 -0.13278931  0.96837151  0.71550714 -0.43112478
+      0.12024006  1.01562863  0.39091251  0.65209704]
 
-
-```python
-from sklearn.preprocessing import PolynomialFeatures
-from sklearn.pipeline import make_pipeline
-from sklearn.linear_model import LinearRegression
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import r2_score
-from sklearn.metrics import mean_squared_error
-```
 
 ### Using root mean square error, find weights of polynomial regression for order is 0, 1, 3, 9
 
 
-```python
-# train_x=np.array(train_x)
-# train_y=np.array(train_y)
-# train_x.reshape(-1)
-# train_y.reshape(-1)
-
-
-# reference : https://moonbooks.org/Articles/How-to-implement-a-polynomial-linear-regression-using-scikit-learn-and-python-3-/
-def Regression(i):
-    polynomial_features = PolynomialFeatures(degree = i)
-    x_transf=polynomial_features.fit_transform(train_x)
-    
-    model=LinearRegression()
-    model.fit(x_transf,train_y)
-
-    y_new=model.predict(x_transf)
-
-    #training error
-    rmse=np.sqrt(mean_squared_error(train_y,y_new))
-    #test error
-    rmse2=np.sqrt(mean_squared_error(test_y,y_new))
-    
-    r2=r2_score(test_y,y_new)
-    
-    print('RMSE of degree ',i,': ',rmse2)
-    print('R2 of degree ',i,': ',r2)
-
-    return polynomial_features, model
-
-
-
-
-```
-
+### POLYNOMIAL REGRESSION ORDER ZERO ###
 
 ```python
-polynomial0, model0 = Regression(0)
-weights0=model0.coef_ #https://stackoverflow.com/questions/47303261/getting-weights-of-features-using-scikit-learn-logistic-regression
-w0=weights0.copy()
-w0.resize(10,refcheck=False) #https://stackoverflow.com/questions/38191855/zero-pad-numpy-array
-print('weights for degree 0: ',w0)
+w0 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
 
-polynomial1, model1 = Regression(1)
-weights1=model1.coef_  
-w1=weights1.copy()
-w1.resize(10,refcheck=False)
-print('weights for degree 1: ',w1)
+newX = []
+weight0=[0,0,0,0,0,0,0,0,0,0]
+RMSETRAIN=[]
 
-polynomial3, model3 = Regression(3)
-weights3=model3.coef_
-w3=weights3.copy()
-w3.resize(10,refcheck=False)
-print('weights for degree 3: ',w3)
+def forward(x):
+    return w0 
+    # + w2 * x * x + w3 + x * x * x
 
-polynomial9, model9 = Regression(9)
-weights9=model9.coef_
-w9=weights9.copy()
-w9.resize(10,refcheck=False)
-print('weights for degree 9: ',w9)
-
-```
-
-    RMSE of degree  0 :  0.6757748998054574
-    R2 of degree  0 :  -3.095311539746959e-05
-    weights for degree 0:  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
-    RMSE of degree  1 :  0.8812007036292655
-    R2 of degree  1 :  -0.700430943644264
-    weights for degree 1:  [ 0.         -2.08588249  0.          0.          0.          0.
-      0.          0.          0.          0.        ]
-    RMSE of degree  3 :  0.8288670295347729
-    R2 of degree  3 :  -0.5044545024311573
-    weights for degree 3:  [  0.          19.13481046 -49.59044887  31.84488751   0.
-       0.           0.           0.           0.           0.        ]
-    RMSE of degree  9 :  0.88028613143296
-    R2 of degree  9 :  -0.6969031211504679
-    weights for degree 9:  [ 0.00000000e+00 -5.15004633e+05  5.62522625e+06 -3.33866950e+07
-      1.19621482e+08 -2.70415048e+08  3.88273313e+08 -3.43304079e+08
-      1.70341143e+08 -3.62628790e+07]
-    
-
-### Display weights in table
+def loss(x,y):
+  ycap = forward(x)
+  return (ycap - y).pow(2).sum() 
 
 
-```python
-# https://www.geeksforgeeks.org/creating-tables-with-prettytable-library-python/
+for epoch in range(100):
+  suml=0
+  i=0
+  for xval, yval in zip(train_x, train_y):
+    i+=1
+    l = loss(xval,yval)
+    suml+=l.data.numpy()
+    l.backward()
+    w0.data = w0.data - 0.01 * w0.grad.data
+    w0.grad.data.zero_()
 
-from prettytable import PrettyTable
+  suml=suml/i
+  suml = np.sqrt(suml)
+ 
+print('RMSE = ', suml)
+RMSETRAIN.append(suml)
 
-mytable=PrettyTable()
+print('WIEGHT ZERO = ' ,w0)
+weight0[0]= w0
 
-columns=['','Order 0','Order 1','Order 3','Order 9']
+print("predict (before training)", train_x[0], forward(train_x[0]))
+print("predict (before training)",train_x[1] , forward(train_x[1]))
+print("predict (before training)", train_x[2], forward(train_x[2]))
+print("predict (before training)", train_x[3], forward(train_x[3]))
+print("predict (before training)",train_x[4] , forward(train_x[4]))
+print("predict (before training)", train_x[5], forward(train_x[5]))
+print("predict (before training)", train_x[6], forward(train_x[6]))
+print("predict (before training)",train_x[7] , forward(train_x[7]))
+print("predict (before training)", train_x[8], forward(train_x[8]))
+print("predict (before training)", train_x[9], forward(train_x[9]))
 
-mytable.add_column(columns[0],['W0','W1','W2','W3','W4','W5','W6','W7','W8','W9'])
-mytable.add_column(columns[1],w0)
-mytable.add_column(columns[2],w1)
-mytable.add_column(columns[3],w3)
-mytable.add_column(columns[4],w9)
-
-print(mytable)
-```
-
-    +----+---------+--------------------+---------------------+---------------------+
-    |    | Order 0 |      Order 1       |       Order 3       |       Order 9       |
-    +----+---------+--------------------+---------------------+---------------------+
-    | W0 |   0.0   |        0.0         |         0.0         |         0.0         |
-    | W1 |   0.0   | -2.085882487390529 |  19.134810457045457 | -515004.63279339066 |
-    | W2 |   0.0   |        0.0         | -49.590448870417305 |  5625226.251401764  |
-    | W3 |   0.0   |        0.0         |  31.844887505116315 | -33386695.008260697 |
-    | W4 |   0.0   |        0.0         |         0.0         |  119621482.41552813 |
-    | W5 |   0.0   |        0.0         |         0.0         |  -270415047.5128739 |
-    | W6 |   0.0   |        0.0         |         0.0         |  388273313.46595275 |
-    | W7 |   0.0   |        0.0         |         0.0         |  -343304079.1551127 |
-    | W8 |   0.0   |        0.0         |         0.0         |  170341143.46188554 |
-    | W9 |   0.0   |        0.0         |         0.0         |  -36262879.02721146 |
-    +----+---------+--------------------+---------------------+---------------------+
-    
-
-### Draw a chart of fit data
-
-
-```python
-xnew=np.linspace(0,1,100)
-xnew=np.array(xnew)
-xnew=xnew.reshape(-1,1)
-
-x_trans0=polynomial0.fit_transform(xnew)
-y0=model0.predict(x_trans0)
-plt.scatter(x,y)
-plt.plot(xnew,y0,c='r')
+plt.scatter(train_x,train_y,c='r')
+plt.plot(X0,newX)
 plt.title('polynomial regression order 0')
 plt.xlabel('x')
 plt.ylabel('y')
 plt.show()
 
 
-x_trans1=polynomial1.fit_transform(xnew)
-y1=model1.predict(x_trans1)
-plt.scatter(x,y)
-plt.plot(xnew,y1,c='r')
-plt.title('polynomial regression order 1')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.show()
+```
 
-x_trans3=polynomial3.fit_transform(xnew)
-y3=model3.predict(x_trans3)
-plt.scatter(x,y)
-plt.plot(xnew,y3,c='r')
-plt.title('polynomial regression order 3')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.show()
+    RMSE =  0.5893791412888717
+    WIEGHT ZERO =  tensor([-0.4597], requires_grad=True)
+    predict (before training) 0.5895987509966687 tensor([-0.4597], requires_grad=True)
+    predict (before training) 0.6333788950558974 tensor([-0.4597], requires_grad=True)
+    predict (before training) 0.682501152563854 tensor([-0.4597], requires_grad=True)
+    predict (before training) 0.8034981693828217 tensor([-0.4597], requires_grad=True)
+    predict (before training) 0.8678722887659936 tensor([-0.4597], requires_grad=True)
+    predict (before training) 0.15575272665283768 tensor([-0.4597], requires_grad=True)
+    predict (before training) 0.7486844719729087 tensor([-0.4597], requires_grad=True)
+    predict (before training) 0.9065282311302156 tensor([-0.4597], requires_grad=True)
+    predict (before training) 0.6286242975627008 tensor([-0.4597], requires_grad=True)
+    predict (before training) 0.47648692943445026 tensor([-0.4597], requires_grad=True)
 
-x_trans9=polynomial9.fit_transform(xnew)
-y9=model9.predict(x_trans9)
-plt.scatter(x,y)
-plt.plot(xnew,y9,c='r')
-plt.title('polynomial regression order 9')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.show()
+![png](./order0.png)
+
+### POLYNOMIAL REGRESSION ORDER ONE ### 
+
+```python
+w0 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+w1 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+
+newX = []
+weight1=[0,0,0,0,0,0,0,0,0,0]
+
+def forward(x):
+    return w0 + w1 * x
+
+def loss(x,y):
+  ycap = forward(x)
+  return (ycap - y).pow(2).sum() 
+
+
+for epoch in range(100):
+  suml=0
+  i=0
+  for xval, yval in zip(train_x, train_y):
+    i+=1
+    l = loss(xval,yval)
+    suml+=l.data.numpy()
+    l.backward()
+    w0.data = w0.data - 0.01 * w0.grad.data
+    w0.grad.data.zero_()
+    w1.data = w1.data - 0.01 * w1.grad.data
+    w1.grad.data.zero_()
+```
+
+    RMSE =  0.41960772035269017
+    WIEGHT ZERO =  tensor([0.2134], requires_grad=True)
+    WEIGHT one = tensor([-1.0722], requires_grad=True)
+    predict (before training) 0.5895987509966687 tensor([-0.4187], grad_fn=<AddBackward0>)
+    predict (before training) 0.6333788950558974 tensor([-0.4657], grad_fn=<AddBackward0>)
+    predict (before training) 0.682501152563854 tensor([-0.5183], grad_fn=<AddBackward0>)
+    predict (before training) 0.8034981693828217 tensor([-0.6481], grad_fn=<AddBackward0>)
+    predict (before training) 0.8678722887659936 tensor([-0.7171], grad_fn=<AddBackward0>)
+    predict (before training) 0.15575272665283768 tensor([0.0464], grad_fn=<AddBackward0>)
+    predict (before training) 0.7486844719729087 tensor([-0.5893], grad_fn=<AddBackward0>)
+    predict (before training) 0.9065282311302156 tensor([-0.7585], grad_fn=<AddBackward0>)
+    predict (before training) 0.6286242975627008 tensor([-0.4606], grad_fn=<AddBackward0>)
+    predict (before training) 0.47648692943445026 tensor([-0.2975], grad_fn=<AddBackward0>)
+    
+![png](./order1.png)
+
+### POLYNOMIAL REGRESSION ORDER THREE ### 
+
+
+```python
+import torch
+from torch import nn,optim
+from torch.autograd import Variable
+
+###REFRENCED FROM Lecture 04_ Back-propagation and PyTorch autograd.pdf ###
+
+w0 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+w1 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+w2 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+w3 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+w4 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+w5 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+
+newX = []
+suml=0
+i=0
+lostlist=[]
+weight3=[0,0,0,0,0,0,0,0,0,0]
+
+def forward(x):
+    return w0 + w1 * x + w2 * x * x + w3 * x * x * x
+
+def loss(x,y):
+  ycap = forward(x)
+  return (ycap - y).pow(2).sum()
+
+for epoch in range(100):
+  suml=0
+  i=0
+  for xval, yval in zip(train_x, train_y):
+    i+=1
+    l = loss(xval,yval)
+    suml+=l.data.numpy()
+    l.backward()
+    w0.data = w0.data - 0.01 * w0.grad.data
+    w0.grad.data.zero_()
+    w1.data = w1.data - 0.01 * w1.grad.data
+    w1.grad.data.zero_()
+    w2.data = w2.data - 0.01 * w2.grad.data
+    w2.grad.data.zero_()
+    w3.data = w3.data - 0.01 * w3.grad.data
+    w3.grad.data.zero_()
+```
+
+
+    WIEGHT ZERO =  tensor([0.3546], requires_grad=True)
+    WEIGHT one = tensor([-0.7806], requires_grad=True)
+    WEIGHT TWO tensor([-0.5524], requires_grad=True)
+    WEIGHT THREE tensor([-0.1894], requires_grad=True)
+    RMSE =  0.3875159033465206
+    predict (before training) 0.5895987509966687 tensor([-0.3365], grad_fn=<AddBackward0>)
+    predict (before training) 0.6333788950558974 tensor([-0.4096], grad_fn=<AddBackward0>)
+    predict (before training) 0.682501152563854 tensor([-0.4957], grad_fn=<AddBackward0>)
+    predict (before training) 0.8034981693828217 tensor([-0.7275], grad_fn=<AddBackward0>)
+    predict (before training) 0.8678722887659936 tensor([-0.8627], grad_fn=<AddBackward0>)
+    predict (before training) 0.15575272665283768 tensor([0.2189], grad_fn=<AddBackward0>)
+    predict (before training) 0.7486844719729087 tensor([-0.6189], grad_fn=<AddBackward0>)
+    predict (before training) 0.9065282311302156 tensor([-0.9481], grad_fn=<AddBackward0>)
+    predict (before training) 0.6286242975627008 tensor([-0.4014], grad_fn=<AddBackward0>)
+    predict (before training) 0.47648692943445026 tensor([-0.1633], grad_fn=<AddBackward0>)
+    
+![png](./order3.png)
+
+### POLYNOMIAL REGRESSION ORDER NINE ### 
+
+
+```python
+w0 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+w1 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+w2 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+w3 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+w4 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+w5 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+w6 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+w7 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+w8 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+w9 = Variable(torch.Tensor([1.0]), requires_grad=True) # Any random value
+
+newX = []
+weight9=[0,0,0,0,0,0,0,0,0,0]
+
+def forward(x):
+    return w0 + w1 * x + w2 * x * x + w3 * x **3 + w4 *x **4 + w5* x **5 + w6 * x**6 + w7 *x**7 + w8 * x **8 + w9 + x **9
+
+def loss(x,y):
+  ycap = forward(x)
+  return (ycap - y).pow(2).sum()
+
+
+for epoch in range(100):
+  suml=0
+  i=0
+  for xval, yval in zip(train_x, train_y):
+    i+=1
+    l = loss(xval,yval)
+    suml+=l.data.numpy()
+    l.backward()
+    w0.data = w0.data - 0.01 * w0.grad.data
+    w0.grad.data.zero_()
+    w1.data = w1.data - 0.01 * w1.grad.data
+    w1.grad.data.zero_()
+    w2.data = w2.data - 0.01 * w2.grad.data
+    w2.grad.data.zero_()
+    w3.data = w3.data - 0.01 * w3.grad.data
+    w3.grad.data.zero_()
+    w4.data = w4.data - 0.01 * w4.grad.data
+    w4.grad.data.zero_()
+    w5.data = w5.data - 0.01 * w5.grad.data
+    w5.grad.data.zero_()
+    w6.data = w6.data - 0.01 * w6.grad.data
+    w6.grad.data.zero_()
+    w7.data = w7.data - 0.01 * w7.grad.data
+    w7.grad.data.zero_()
+    w8.data = w8.data - 0.01 * w8.grad.data
+    w8.grad.data.zero_()
+    w9.data = w9.data - 0.01 * w9.grad.data
+    w9.grad.data.zero_()
 
 ```
 
 
-![png](./overfitting_12_0.png)
+    WIEGHT ZERO =  tensor([0.3153], requires_grad=True)
+    WEIGHT one = tensor([-0.9401], requires_grad=True)
+    WEIGHT TWO tensor([-0.8478], requires_grad=True)
+    WEIGHT THREE tensor([-0.5631], requires_grad=True)
+    WEIGHT FOUR tensor([-0.2890], requires_grad=True)
+    WEIGHT FIVE tensor([-0.0590], requires_grad=True)
+    WEIGHT SIX tensor([0.1268], requires_grad=True)
+    WEIGHT SEVEN tensor([0.2754], requires_grad=True)
+    WEIGHT EIGHT tensor([0.3943], requires_grad=True)
+    WEIGHT NINE tensor([0.3153], requires_grad=True)
+    RMSE =  0.29434764447373624
+    predict (before training) 0.5895987509966687 tensor([-0.3465], grad_fn=<AddBackward0>)
+    predict (before training) 0.6333788950558974 tensor([-0.4545], grad_fn=<AddBackward0>)
+    predict (before training) 0.682501152563854 tensor([-0.5739], grad_fn=<AddBackward0>)
+    predict (before training) 0.8034981693828217 tensor([-0.8027], grad_fn=<AddBackward0>)
+    predict (before training) 0.8678722887659936 tensor([-0.8224], grad_fn=<AddBackward0>)
+    predict (before training) 0.15575272665283768 tensor([0.4612], grad_fn=<AddBackward0>)
+    predict (before training) 0.7486844719729087 tensor([-0.7180], grad_fn=<AddBackward0>)
+    predict (before training) 0.9065282311302156 tensor([-0.7669], grad_fn=<AddBackward0>)
+    predict (before training) 0.6286242975627008 tensor([-0.4428], grad_fn=<AddBackward0>)
+    predict (before training) 0.47648692943445026 tensor([-0.0818], grad_fn=<AddBackward0>)
 
 
 
-![png](./overfitting_12_1.png)
+![png](./order9.png)
 
 
+### Displaying weights
 
-![png](./overfitting_12_2.png)
+```python
+# https://www.geeksforgeeks.org/creating-tables-with-prettytable-library-python/
+
+from prettytable import PrettyTable
+
+pt = PrettyTable()
+pt.add_column('',['w0','w1','w2','w3','w4','w5','w6','w7','w8','w9'])
+pt.add_column('Degree zero' ,weight0)
+pt.add_column('Degree one' ,weight1)
+pt.add_column('Degree three' ,weight3)
+pt.add_column('Degree nine' ,weight9)
 
 
+print(pt)
+```
 
-![png](./overfitting_12_3.png)
-
+![png](./weights.png)
 
 ### Draw train error vs test error
 
 
 ```python
-train_errors=[]
-test_errors=[]
-# print(test_x.shape)
-# print(test_y.shape)
+degree=[0, 1, 3, 9]
 
-for i in range (0,10):
-  polynomial_features = PolynomialFeatures(degree = i)
-  x_transf=polynomial_features.fit_transform(train_x)
-    
-  model=LinearRegression()
-  model.fit(x_transf,train_y)
-
-  y_new=model.predict(x_transf)
-
-  #training error
-  rmse=np.sqrt(mean_squared_error(train_y,y_new))
-  #test error
-  x_transf=polynomial_features.fit_transform(test_x)
-  y_new=model.predict(x_transf)
-  rmse2=np.sqrt(mean_squared_error(test_y,y_new))
-
-  train_errors.append(rmse)
-  test_errors.append(rmse2)
-
-
-print(train_errors)
-print(test_errors)
-models= np.linspace(0, 9, 10)
-plt.plot(models,train_errors,label = 'train error', color = 'blue')
-plt.plot(models,test_errors,label = 'test error', color = 'red')
-plt.title('Train vs test error')
-plt.xlabel('polynomial regression order')
+plt.plot(degree,RMSETRAIN)
+plt.scatter(degree,RMSETRAIN)
+plt.plot(degree,RMSETEST, c='r')
+plt.scatter(degree,RMSETEST, c='r')
+plt.title('Train error')
+plt.xlabel('MODEL ORDER')
 plt.ylabel('RMSE')
-plt.legend()
 plt.show()
-
-
-
-
 
 ```
 
-    [0.6718839839061639, 0.3949820650144116, 0.362185294183138, 0.15509957090719734, 0.1257616863153283, 0.11667502425249053, 0.11033312782105564, 0.05139960801508042, 0.045984709291081345, 2.7116532461094445e-08]
-    [0.6757748998054574, 0.5130767396803901, 0.6430332529224712, 0.40209758302055293, 0.7368997594930184, 0.3663105838641724, 0.5101256658169809, 6.711239341941148, 37.9374792351037, 5445.918996816799]
-    
-
-
-![png](./overfitting_14_1.png)
+![png](./testvstrain.png)
 
 
 ### generate 100 more data and fit 9th order model and draw fit
@@ -438,142 +445,45 @@ plt.show()
 
 
 ```python
-# x2=np.random.uniform(0,1,100)
-x2=np.linspace(0,1,100)
-n2=np.random.normal(size=100)
+X100=[]
+Y100=[]
+data100=[]
 
-print('showing values of x : ',x2)
-
-plt.hist(x2)
-plt.title('values of x2')
-plt.show()
-
-print('showing values of n2 : ',n2)
-
-plt.hist(n2)
-plt.title('values of n2')
-plt.show()
-
-```
-
-    showing values of x :  [0.         0.01010101 0.02020202 0.03030303 0.04040404 0.05050505
-     0.06060606 0.07070707 0.08080808 0.09090909 0.1010101  0.11111111
-     0.12121212 0.13131313 0.14141414 0.15151515 0.16161616 0.17171717
-     0.18181818 0.19191919 0.2020202  0.21212121 0.22222222 0.23232323
-     0.24242424 0.25252525 0.26262626 0.27272727 0.28282828 0.29292929
-     0.3030303  0.31313131 0.32323232 0.33333333 0.34343434 0.35353535
-     0.36363636 0.37373737 0.38383838 0.39393939 0.4040404  0.41414141
-     0.42424242 0.43434343 0.44444444 0.45454545 0.46464646 0.47474747
-     0.48484848 0.49494949 0.50505051 0.51515152 0.52525253 0.53535354
-     0.54545455 0.55555556 0.56565657 0.57575758 0.58585859 0.5959596
-     0.60606061 0.61616162 0.62626263 0.63636364 0.64646465 0.65656566
-     0.66666667 0.67676768 0.68686869 0.6969697  0.70707071 0.71717172
-     0.72727273 0.73737374 0.74747475 0.75757576 0.76767677 0.77777778
-     0.78787879 0.7979798  0.80808081 0.81818182 0.82828283 0.83838384
-     0.84848485 0.85858586 0.86868687 0.87878788 0.88888889 0.8989899
-     0.90909091 0.91919192 0.92929293 0.93939394 0.94949495 0.95959596
-     0.96969697 0.97979798 0.98989899 1.        ]
-    
-
-
-![png](./overfitting_16_1.png)
-
-
-    showing values of n2 :  [-1.55866377e+00 -1.36082128e+00 -1.05110994e+00  1.04086891e+00
-      2.96452186e-01 -1.05815554e+00  1.02215584e+00  7.60582413e-01
-      1.95520316e-01  9.15855074e-01  1.19469760e+00  1.08410113e+00
-      1.03857214e-01  5.98172298e-01 -4.46541456e-01 -2.80242879e-01
-     -2.67079929e+00 -2.78362843e+00 -2.52092922e-01  5.87267337e-01
-      3.51216092e-01  1.26619371e+00  6.17943671e-01 -1.44713393e+00
-     -1.25583113e+00  1.42049206e+00 -1.11409691e+00 -4.55209331e-01
-     -3.44930931e-01 -1.46415939e+00 -1.04930766e+00 -1.52506917e+00
-      1.02117993e+00  6.25609487e-02 -8.40164086e-01  5.24914195e-01
-      6.09723066e-01  8.19633625e-01 -7.27630828e-01  4.75948243e-01
-     -1.64089928e+00  4.39467458e-01  4.21874275e-01 -1.34377280e-01
-      1.33547374e+00  5.53856620e-02 -2.54380300e-04  9.48876627e-01
-      8.90043657e-01 -1.78931297e-01 -9.16446072e-01  9.90562129e-01
-      8.88212853e-01  1.69680671e-01  8.14319143e-01  6.12007163e-01
-      1.39683318e-01  8.71915540e-01 -7.63908904e-01 -1.17811912e+00
-     -9.17932742e-01 -6.39680044e-01 -1.90497738e-01 -9.99193965e-01
-      3.64166255e-01 -3.91968107e-01 -7.05899449e-01 -4.43756310e-01
-      6.40494524e-01 -1.40481471e+00 -3.35706079e+00 -5.48380794e-01
-     -2.11144296e-01 -1.10600220e+00 -7.95820110e-01 -6.79240687e-01
-     -1.52953134e+00 -1.60538107e-01  3.29946743e-01 -8.81889112e-01
-      1.35867475e+00 -4.08459188e-03 -2.02817090e+00  6.65982192e-01
-     -1.67109931e+00 -6.05020469e-01 -7.24295867e-01  5.95801125e-01
-     -4.20600058e-01 -8.75747834e-01  1.25075185e-02  1.26851542e+00
-     -1.08861724e+00 -3.87161159e-01  9.77170225e-01  7.82021728e-01
-     -4.89046218e-01 -2.81539170e-01  3.93538608e-01 -2.13785821e-01]
-    
-
-
-![png](./overfitting_16_3.png)
-
-
-
-```python
-y2=[]
 for i in range(100):
-  # print(i)
-  y2.append((math.sin(x2[i]*3.142*2))+(n2[i])*0.2)
-print('Values of y2 : ',y2)
-
-plt.hist(y2)
-plt.title('values of y2')
-plt.show()
-
-plt.scatter(x2,y2)
-plt.title('scatter plot of 100 data points')
-plt.show()
-
-x2=np.array(x2)
-y2=np.array(y2)
-x2=x2.reshape(-1,1)
-y2=y2.reshape(-1,1)
-
-
+  x100 = np.random.uniform(0,1)
+  n100 = np.random.normal(0,1)
+  y100 = np.sin(2*3.142*x100) + (n100 * 0.1)
+  X100.append(x100)
+  Y100.append(y100)
 ```
 
-    Values of y2 :  [-0.3117327532333845, -0.2087321237010215, -0.08361320756022472, 0.3974492687128643, 0.3104702861353639, 0.10044142819925178, 0.5761394617072048, 0.581963406665068, 0.5253583271126174, 0.7238741365917095, 0.8319137142946355, 0.8596771765088341, 0.7109219200919744, 0.8542987508380389, 0.6869108133829285, 0.7585989713174226, 0.3156349828291035, 0.32479373814101953, 0.8592749347810785, 1.0516571172768014, 1.0251943153815195, 1.225091038921837, 1.1084279088007505, 0.7044326395540844, 0.7477104914536655, 1.283969255314285, 0.7740184140652548, 0.8987479304584214, 0.909769042934862, 0.6709466594277712, 0.7350585124815525, 0.6172418704097319, 1.1001127901453875, 0.8784017794561514, 0.6643820215540022, 0.9005702172282631, 0.8775001506965499, 0.8764072775392451, 0.5210097503891915, 0.713096327364823, 0.23860884836693852, 0.6012813720422497, 0.5422941436365291, 0.37373088330499327, 0.608774620541279, 0.29245435537410486, 0.21989039772205776, 0.34739479455999395, 0.2726715533827463, -0.0044613573266350515, -0.2154283991453561, 0.10263860107351973, 0.01921864488010891, -0.1867998099519069, -0.11929507784064178, -0.22004398728221192, -0.37341600521489854, -0.2842602853864343, -0.666868624877389, -0.8030835349977477, -0.8021335754328731, -0.7950790350602879, -0.7511515268655266, -0.9559277723581943, -0.7232474356255517, -0.9112596483739628, -1.0074767301682954, -0.9849897395880294, -0.7944714385077226, -1.2261493220746884, -1.6354076579703123, -1.0885981012869317, -1.0321344493944529, -1.218102643406947, -1.1590476261102738, -1.1346859192184795, -1.2996752179980313, -1.0168051446232313, -0.9056706908267995, -1.1310868317006366, -0.6621777570024268, -0.9101718097941586, -1.286768655718661, -0.7161686849729711, -1.1483946530370577, -0.8967093068368315, -0.8789705081713302, -0.5704004580374775, -0.7263527052172503, -0.7674675565155138, -0.5375161080715276, -0.23183912558195263, -0.6468346412811318, -0.44838408248155437, -0.11586438306168112, -0.09398684596579335, -0.28628470022161423, -0.18210843498848756, 0.01608866247606501, -0.041942471431624724]
+    showing values of Y :  [0.9915310383016898, 0.6601530950039405, 0.8302926897202694, 0.807257458487882, 0.7993569586685612, 0.6229643620400901, 0.7617517712697491, 0.9491050312211964, 0.4018684705195825, 0.43372615084685595, 0.7908144553988931, 0.8793281411042071, 0.362248774785379, 0.6130696388456689, 0.267590470615112, 0.9869726681329188, 0.7272330576083631, 0.6895316154549552, 0.29622752992877444, 0.22788492571596564, 0.04105965252442478, 0.6128557181915981, 0.024110431331409887, 0.7984688553675587, 0.45131447771449995, 0.3079111642258555, 0.13406944702152834, 0.698702628026026, 0.24485544327608266, 0.7442756716777882, 0.8376810497362471, 0.7045018082452233, 0.9284376127173981, 0.34912337762101064, 0.7916612978680062, 0.7065372496819562, 0.8704252511259509, 0.6420527160434791, 0.8622818841128475, 0.9429060728590494, 0.753204674490053, 0.938802432970327, 0.784932845571438, 0.5316382688190833, 0.29043603091303294, 0.17698505040488344, 0.8348847415408234, 0.9166258843400861, 0.8472036035630466, 0.3905059599566979, 0.3465719587014079, 0.46112684607091947, 0.7854898370121638, 0.30662742265241916, 0.4250693233174295, 0.9171761166240752, 0.49523437398237724, 0.7285393254537599, 0.7693318003252934, 0.6010777197503303, 0.3619087979595088, 0.5531063508054782, 0.20574627901121034, 0.8683999433656069, 0.034465842308171846, 0.02671288683598172, 0.5890981399967247, 0.7657816182253613, 0.35729856529779924, 0.7920593043901111, 0.4013897962811759, 0.3438041531337658, 0.8667669158058195, 0.24376382472048652, 0.7683475170574577, 0.316652331900387, 0.6311088660902404, 0.4080786141064495, 0.11080582362975988, 0.8289716970382638, 0.940768411574112, 0.81342419691067, 0.8592882785840164, 0.5884321245352222, 0.8453904667881861, 0.8786884312693236, 0.9724864347261638, 0.2423496459194936, 0.04549130345087449, 0.36090522532820146, 0.2725918243249946, 0.6407128572658558, 0.33029273916484403, 0.5338810745096708, 0.7822493376352905, 0.39649335289417953, 0.4907556774389715, 0.14799142304076418, 0.03313133781589539, 0.23869899648295978]
     
 
 
-![png](./overfitting_17_1.png)
+![png](./100y.png)
 
 
+     showing values of X :  [-0.10453153748715191, -1.0400363645303885, -0.8535408947790633, -0.9849054427729056, -0.8611220299615225, -0.8882635269480375, -0.8569227137352726, -0.3127422192193498, 0.473013850176006, 0.2764667565805188, -0.8687785213349634, -0.5653061430857994, 0.8771702928430484, -0.6643703369844021, 0.9691463304145237, -0.14467994128938272, -1.015691652947397, -0.9464153285948337, 1.0249460121830118, 0.9504526864219411, 0.18646315567924213, -0.5296211442281803, 0.20962136927351882, -1.0956211929395931, 0.4635777690957832, 0.9951007731189181, 0.9949321993333462, -0.8367987141726885, 1.0075351586654637, -0.9417768959405749, -0.9110444339552564, -0.9618633777889404, -0.5615309932198858, 0.9724191895070544, -1.0779062765583833, -1.0327737298810555, -0.6250414756064447, -0.9122427329695214, -0.7674787005251035, -0.32131562833499794, -0.8044670488660386, -0.470588560627615, -0.9553369124241687, -0.21383558093423935, 0.8921975217049699, 0.8534203856479496, -0.6623139891215526, -0.5827129394978314, -0.7127887703798769, 0.7075948392598367, 0.975168940862966, 0.19592379139089705, -1.0442516046751604, 0.8920884358523539, 0.3763145634286107, -0.543308029363738, 0.05521967578868045, -1.0070899812220597, -0.7881939276573322, -0.5578236061621806, 0.8664265208975337, -0.24865552180913142, 1.0994899460745946, -0.7341768270858002, 0.4215334310275749, 0.07957725340608364, -0.6013258570059632, -0.9404504603257546, 0.8643994029930415, -1.028584296088671, 0.4806511063712019, 0.7940037925261993, -0.7731529984390735, 1.0048579779449525, -0.8018590993333246, 0.7797962989312418, -0.6326914472403491, 0.5537699068554518, 0.7057969925876186, -0.8885157175122426, -0.27894037904179353, -0.8822509413279913, -0.6820549318073819, -0.5076906443216823, -0.8512910234504406, -0.7378269497928828, -0.188515875454808, 1.1048413034926456, 0.3157730562348591, 1.0014861114719749, 0.9699416435127447, -0.7132913654616275, 0.9146376217358693, -0.1587425086977783, -1.0209293507307762, 0.6566603916085945, 0.13442770783736863, 0.7685847024590746, 0.14824952977866918, 0.9368117632693251]
 
-![png](./overfitting_17_2.png)
+![png](./100x.png)
 
-
+![png](./sinall.png)
 
 ```python
-polynomial_features2=PolynomialFeatures(degree=9)
-x_transf2=polynomial_features2.fit_transform(x2)
-model2=LinearRegression()
-model2.fit(x_transf2,y2)
+X0 = np.linspace(0,1,100)
+for x in X0:
+  newX.append(forward(x).detach())
 
-y2new=model2.predict(x_transf2)
 
-xnew=np.linspace(0,1,100)
-plt.plot(xnew,y2new,c='r')
-plt.scatter(x2,y2)
-plt.title('plot for 100 data points, degree 9 polynomial regression')
+plt.scatter(X100,Y100,c='r')
+plt.plot(X0,newX)
+plt.title('polynomial regression order 9')
 plt.xlabel('x')
 plt.ylabel('y')
-plt.show
-
+plt.show()
 ```
-
-
-
-
-    <function matplotlib.pyplot.show>
-
-
-
-
-![png](./overfitting_18_1.png)
-
+![png](./100plots.png)
 
 ### Now we will regularize using the sum of weights
 
