@@ -670,19 +670,24 @@ Doing this project helped clarify my concepts of overfitting and discover a way 
 
 
 ### References:
+
 [1] https://vitalflux.com/wp-content/uploads/2020/12/overfitting-and-underfitting-wrt-model-error-vs-complexity.png
 
 [2] https://www.ibm.com/cloud/learn/overfitting
 
-[3] https://moonbooks.org/Articles/How-to-implement-a-polynomial-linear-regression-using-scikit-learn-and-python-3-/
+[3] https://www.youtube.com/watch?v=4JQR9k2OXcw   
 
-[4] https://stackoverflow.com/questions/47303261/getting-weights-of-features-using-scikit-learn-logistic-regression
+[4] https://www.geeksforgeeks.org/python-implementation-of-polynomial-regression/
 
-[5] https://stackoverflow.com/questions/38191855/zero-pad-numpy-array
+[5] https://moonbooks.org/Articles/How-to-implement-a-polynomial-linear-regression-using-scikit-learn-and-python-3-/
 
-[6] https://www.geeksforgeeks.org/creating-tables-with-prettytable-library-python/
+[6] https://stackoverflow.com/questions/47303261/getting-weights-of-features-using-scikit-learn-logistic-regression
 
-[7] https://inria.github.io/scikit-learn-mooc/python_scripts/linear_models_regularization.html
+[7] https://stackoverflow.com/questions/38191855/zero-pad-numpy-array
+
+[8] https://www.geeksforgeeks.org/creating-tables-with-prettytable-library-python/
+
+[9] https://inria.github.io/scikit-learn-mooc/python_scripts/linear_models_regularization.html
 
 
 
