@@ -488,7 +488,7 @@ for i in range(100):
 
 ![png](./100x.png)
 
-![png](./sinall.png)
+![png](./ggt.png)
 
 ```python
 X0 = np.linspace(0,1,100)
