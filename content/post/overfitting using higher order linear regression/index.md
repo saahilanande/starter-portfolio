@@ -127,7 +127,7 @@ print('TEST_Y',test_y)
 
 ### Using root mean square error, find weights of polynomial regression for order is 0, 1, 3, 9
 
-Using pytorch and loss function we would generate the weights and adjust the weight in each iteration when the loss is decreasing.
+Using pytorch and loss function we would generate the weights and adjust the weight in each iteration when the loss is decreasing. Refered from class module under ANN, Lecture 04_ Back-propagation and PyTorch autograd.pdf page 27 - 33
 
 
 ### POLYNOMIAL REGRESSION ORDER ZERO ###
@@ -515,9 +515,7 @@ Now if we increase the amount of data set, graph above that the model takes on a
 
 Initially I struggled with implimenting gradient descent on different polynomial order. I started with manually writing the gradient decent d loss by d w for each polynomial order, but [this blog]https://discuss.pytorch.org/t/rmse-loss-function/16540 and lecture slides (Lecture 04_ Back-propagation and PyTorch autograd.pdf) helped me understand the concept and how to implement it.
 
-While adding the weights of the polynomials to the pretty table, i had to pad zeroes to it, to make all of them of the same length. But doing so messed up the weights of all the polynomials because it was a referenced variable. Using the .copy() function solved that problem for me.
-
-
+I was struggling to under the different polynomial regression order and how they fit the given sin funtion , but [This video]https://www.youtube.com/watch?v=4JQR9k2OXcw&list=PLL2uuAdM_XwwOcFF7TCYkRTC6WuNpNOdu&index=8 help me understand the concept in much detail. 
 
 Doing this project helped clarify my concepts of overfitting and discover a way to prevent it from happening.
 
@@ -533,15 +531,11 @@ Doing this project helped clarify my concepts of overfitting and discover a way 
 
 [4] https://www.geeksforgeeks.org/python-implementation-of-polynomial-regression/
 
-[5] https://moonbooks.org/Articles/How-to-implement-a-polynomial-linear-regression-using-scikit-learn-and-python-3-/
+[5] Lecture 04_ Back-propagation and PyTorch autograd.pdf in class module ANN
 
-[6] https://stackoverflow.com/questions/47303261/getting-weights-of-features-using-scikit-learn-logistic-regression
+[6] https://www.geeksforgeeks.org/creating-tables-with-prettytable-library-python/
 
-[7] https://stackoverflow.com/questions/38191855/zero-pad-numpy-array
-
-[8] https://www.geeksforgeeks.org/creating-tables-with-prettytable-library-python/
-
-[9] https://discuss.pytorch.org/t/rmse-loss-function/16540
+[7] https://discuss.pytorch.org/t/rmse-loss-function/16540
 l
 
 
