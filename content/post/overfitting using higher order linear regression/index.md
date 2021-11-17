@@ -515,7 +515,7 @@ Now if we increase the amount of data set, graph above that the model takes on a
 
 Initially I struggled with implimenting gradient descent on different polynomial order. I started with manually writing the gradient decent d loss by d w for each polynomial order, but [this blog]https://discuss.pytorch.org/t/rmse-loss-function/16540 and lecture slides (Lecture 04_ Back-propagation and PyTorch autograd.pdf) helped me understand the concept and how to implement it.
 
-I was struggling to under the different polynomial regression order and how they fit the given sin funtion , but [This video]https://www.youtube.com/watch?v=4JQR9k2OXcw&list=PLL2uuAdM_XwwOcFF7TCYkRTC6WuNpNOdu&index=8 help me understand the concept in much detail. 
+I was struggling to understand the different polynomial regression order and how they fit the given sin funtion , but [_This video_]https://www.youtube.com/watch?v=4JQR9k2OXcw&list=PLL2uuAdM_XwwOcFF7TCYkRTC6WuNpNOdu&index=8 help me understand the concept in much detail. 
 
 Doing this project helped clarify my concepts of overfitting and discover a way to prevent it from happening.
 
