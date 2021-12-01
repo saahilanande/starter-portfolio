@@ -69,11 +69,6 @@ P(X1, X2, ..., Xd|Yj) = P(X1| Yj) P(X2| Yj)... P(Xd| Yj)
 
 **Classifier:** Shows that the application of the algorithm is to classify a given set of inputs
 
-### What is Laplace Smoothing?
-
-If one of the conditional probabilities is zero, then the entire expression becomes zero. To solve this error we use Lapace Smoothing. To perform Laplace smoothing we add 1 to the numerator and 'v' to the denomenator of all probabilites. where 'v' is the total number of attribute values that Xi can take
-
-
 ### Accuracy on test dataset before smoothening: {{< hl >}}14%{{< /hl >}}
 
 ### Final accuracy on test dataset after performing laplacian smoothening: {{< hl >}}81%{{< /hl >}}
@@ -82,13 +77,21 @@ If one of the conditional probabilities is zero, then the entire expression beco
 
 # IMPORT REVIEW DATA
 
+we take the IMDB dataset and import into our code. Here I stored the dataset in googledrive and we imported the dataset from there.
+
 ![png](./1.png)
 
 # SPLITING THE DATA INTO TRAIN TEST VALIDATION
 
+We first calculate how many sentences are present in the dataset and which belong to which data set. As we can see the data set is eqally divided into postive and negative review with total sentence 1000. 
+
+For training and testing we divid the dataset to test, train , validation sets.
+
 ![png](./2.png)
 
 # Build a vocabulary as list.
+
+Now to build vocabulary we split each sentence into words and count the frequency of each word.
 
 ```python
 review_list=[]
@@ -136,6 +139,8 @@ for i in range(len(train_review)):
 
 P[“the”] = num of documents containing ‘the’ / num of all documents
 
+To calculate the bayes theorem we need to calulate probability of each word to its respected document.
+
 ![png](./5.png)
 
 # Conditional probability based on the sentiment
@@ -155,6 +160,10 @@ P[“the” | Negative] = # of positive documents containing “the” / num of 
 ![png](./9.png)
 
 # Sentiment ANALYSIS
+
+Now since we are using the naive bayes approach we consider each words to be independent of each other and calculate the bayes theorem. Here we check if the word is present in the respected attribute, if its present we multiple the independent probability given class to those word who are also present in the attribute sentence and if the word is not present we consider the propability as zero and multiple it.
+
+we compare the total multiplication of probability of each sentence and see which class probability is more then it belong to that class.
 
 ```python
 def sentiment(line):
@@ -212,6 +221,10 @@ def sentiment(line):
 
 # SMOOTHING
 
+### What is Laplace Smoothing?
+
+If one of the conditional probabilities is zero, then the entire expression becomes zero. To solve this error we use Lapace Smoothing. To perform Laplace smoothing we add 1 to the numerator and 'v' to the denomenator of all probabilites. where 'v' is the total number of attribute values that Xi can take. Here the attribute can take only 2 values of we add 1 in the numerator and add 2 in the denominator.
+
 ![png](./11.png)
 
 ```python
@@ -260,9 +273,25 @@ def Smoothing(line):
 
 # Calculate accuracy after smoothing
 
+Here we can see that the accuracy significantly increased to 81% from 14%
+
 ![png](./12.png)
 
 # perform 5 fold cross validation
+
+Cross-validation is primarily used in applied machine learning to estimate the skill of a machine learning model on unseen data. That is, to use a limited sample in order to estimate how the model is expected to perform in general when used to make predictions on data not used during the training of the model.
+
+1.Shuffle the dataset randomly.
+2.Split the dataset into k groups
+3.For each unique group:
+
+    1.Take the group as a hold out or test data set
+    2.Take the remaining groups as a training data set
+    3.Fit a model on the training set and evaluate it on the test set
+    4.Retain the evaluation score
+
+[_Source_](https://machinelearningmastery.com/k-fold-cross-validation/)
+
 
 ```python
 s1=[]
@@ -504,12 +533,14 @@ P[Negative| word]
 
 ### Challenges faced:
 
-Initialy I tried to implement smoothing i had trouble applying to this dataset, I had to rewatch the lectures and understand the concept in depth to implement it. I was not able to implement the k-fold cross validation in much compact way which made the code repeatative and the computational time increase quite a bit because of this.
+Initialy I tried to implement smoothing I had trouble applying to IMDB dataset, I had to rewatch the lectures and understand the concept in depth to implement it. I was not able to implement the k-fold cross validation in much compact way which made the code repeatative and the computational time increase quite a bit because of this.
 
 
 ### My Observations and Experiments:
 
 I tried eleminating a few stop words from the data like '!','.','?','(',')',',' but this help me improve the accuracy of the classifier.
+
+Before smoothing the probabilty that a single word is missing caused the whole sentence to became zero which was quite extreme and yield poor result. After smoothing the missing word became very small probability which significantly increased the accuracy.
 
 ### Conclusion:
 The final model accuracy on the test data is 81% The accuracy is pretty decent taking into consideration the naive assumption being made.I believe that, since the dataset had only 1000 inputs, the accuracy might have been lower. Having a larger dataset (more than 5000 sentences) could produce better results. In that case elemination of the stop words could also prove to be beneficial.
