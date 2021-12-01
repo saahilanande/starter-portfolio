@@ -44,7 +44,7 @@ categories:
 
 **Some outputs are shortened on the blog for easier reading. For Complete Jupyter Notebook click below.**
 
-[_Link to Jupyter Notebook_](https://github.com/rohanmandrekar/Sentiment-Analysis/blob/main/Sentiment_Analysis.ipynb)
+[_Link to Jupyter Notebook_](https://github.com/saahilanande/naivebayes/blob/main/Assignment_3_DM.ipynb)
 
 
 ### What is Bayes Theorem?
