@@ -1,6 +1,6 @@
 ---
 title: Sentiment Analysis using Naive Bayes Classifier
-subtitle: Implimenting Naive Bayes classifier from scratch for sentiment analysis of Yelp dataset
+subtitle: Implimenting Naive Bayes classifier from scratch for sentiment analysis of IMDB dataset
 
 # Summary for listings and search engines
 summary: Implimenting Naive Bayes classifier from scratch for sentiment analysis of IMDB dataset.
@@ -78,28 +78,7 @@ If one of the conditional probabilities is zero, then the entire expression beco
 
 ### Final accuracy on test dataset after performing laplacian smoothening: {{< hl >}}81%{{< /hl >}}
 
-
-### Challenges faced:
-
-Initialy when I attempted to implement the classifier on the IMDB dataset, only 768 out of 1000 lines were being read. I attempted to fix it, but did not succeed. Eventually I switched to the Yelp dataset, and the issue was resolved.
-
-
-### My Observations and Experiments:
-
-I tried eleminating a few stop words from the data like 'the','a','and','of','is','to','this','was','in','that','it','for','as','with','are','on', and 'i' but this showed no change in the accuracy of the classifier.
-
-### Conclusion:
-
-I believe that, since the dataset had only 1000 inputs, the accuracy might have been lower. Having a larger dataset (more than 5000 sentences) could produce better results. In that case elemination of the stop words could also prove to be beneficial.
-
 ### References at the end of the page
-
-
-
-```python
-import pandas as pd
-import numpy as np
-```
 
 # IMPORT REVIEW DATA
 
@@ -499,30 +478,12 @@ def foldsentiment(line,pp_prop,nn_prop):
   gg = correct/len(dev)*100
   return gg
 
-# def smoothfoldaccuracy(dev,pp_prop,nn_prop):
-
-#   correct = 0
-
-#   for x in dev:
-#     result = foldsentiment(x[0],pp_prop,nn_prop)
-#     if result == x[1]:
-#       correct = correct + 1
-#   print("smooth Accuracy is ",correct/len(dev)*100)
-#   gg = correct/len(dev)*100
-#   return gg
 
 result1 = foldaccuracy(firstvalid,pp_prop1,nn_prop1)
 result2 = foldaccuracy(secoundvalid,pp_prop2,nn_prop2)
 result3 = foldaccuracy(thirdvalid,pp_prop3,nn_prop3)
 result4 = foldaccuracy(fourthvalid,pp_prop4,nn_prop4)
 result5 = foldaccuracy(fifthvalid,pp_prop5,nn_prop5)
-
-# sresult1 = smoothfoldaccuracy(firstvalid,smooth_postive_prop1,smooth_negative_prop1)
-# sresult2 = smoothfoldaccuracy(secoundvalid,smooth_postive_prop2,smooth_negative_prop2)
-# sresult3 = smoothfoldaccuracy(thirdvalid,smooth_postive_prop3,smooth_negative_prop3)
-# sresult4 = smoothfoldaccuracy(fourthvalid,smooth_postive_prop4,smooth_negative_prop4)
-# sresult5 = smoothfoldaccuracy(fifthvalid,smooth_postive_prop5,smooth_negative_prop5)
-
 
 meanresult= (result1 + result2 + result3 + result4 + result5)/5
 print("accuracy of 5 fold cross validation without using smoothing is:",meanresult)
@@ -539,6 +500,20 @@ P[Positive| word]
 P[Negative| word]
 
 ![png](./15.png)
+
+
+### Challenges faced:
+
+Initialy when I attempted to implement the classifier on the IMDB dataset, only 768 out of 1000 lines were being read. I attempted to fix it, but did not succeed. Eventually I switched to the Yelp dataset, and the issue was resolved.
+
+
+### My Observations and Experiments:
+
+I tried eleminating a few stop words from the data like 'the','a','and','of','is','to','this','was','in','that','it','for','as','with','are','on', and 'i' but this showed no change in the accuracy of the classifier.
+
+### Conclusion:
+
+I believe that, since the dataset had only 1000 inputs, the accuracy might have been lower. Having a larger dataset (more than 5000 sentences) could produce better results. In that case elemination of the stop words could also prove to be beneficial.
 
 ### References:
 [1] https://miro.medium.com/max/1200/1*ZW1icngckaSkivS0hXduIQ.jpeg.
@@ -564,7 +539,3 @@ P[Negative| word]
 [11] https://datatofish.com/convert-pandas-dataframe-to-list/
 
 [12] https://levelup.gitconnected.com/movie-review-sentiment-analysis-with-naive-bayes-machine-learning-from-scratch-part-v-7bb869391bab.
-
-
-
-
