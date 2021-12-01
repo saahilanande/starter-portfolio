@@ -504,16 +504,15 @@ P[Negative| word]
 
 ### Challenges faced:
 
-Initialy when I attempted to implement the classifier on the IMDB dataset, only 768 out of 1000 lines were being read. I attempted to fix it, but did not succeed. Eventually I switched to the Yelp dataset, and the issue was resolved.
+Initialy I tried to implement smoothing i had trouble applying to this dataset, I had to rewatch the lectures and understand the concept in depth to implement it. I was not able to implement the k-fold cross validation in much compact way which made the code repeatative and the computational time increase quite a bit because of this.
 
 
 ### My Observations and Experiments:
 
-I tried eleminating a few stop words from the data like 'the','a','and','of','is','to','this','was','in','that','it','for','as','with','are','on', and 'i' but this showed no change in the accuracy of the classifier.
+I tried eleminating a few stop words from the data like '!','.','?','(',')',',' but this help me improve the accuracy of the classifier.
 
 ### Conclusion:
-
-I believe that, since the dataset had only 1000 inputs, the accuracy might have been lower. Having a larger dataset (more than 5000 sentences) could produce better results. In that case elemination of the stop words could also prove to be beneficial.
+The final model accuracy on the test data is 81% The accuracy is pretty decent taking into consideration the naive assumption being made.I believe that, since the dataset had only 1000 inputs, the accuracy might have been lower. Having a larger dataset (more than 5000 sentences) could produce better results. In that case elemination of the stop words could also prove to be beneficial.
 
 ### References:
 [1] https://miro.medium.com/max/1200/1*ZW1icngckaSkivS0hXduIQ.jpeg.
