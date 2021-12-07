@@ -48,7 +48,7 @@ url_video: ""
 [_**Link to my Kaggle submission**_](https://www.kaggle.com/saahilanande/term-project)
 
 # Motivation(Why I chose this project):
-According to [skincancer.org](https://www.skincancer.org/skin-cancer-information/skin-cancer-facts/) Skin cancer is the most common cancer in the United States and worldwide. 1 in 5 Americans will develop skin cancer by the age of 70. Early detection of skin cancer is vital to ensure successful treatment. An app that can self-diagnose any potential skin cancer within seconds with the ease of a button click can prove to be beneficial by greatly bringing down to cost and time for testing. Since the app also detects some diseases which appear like cancer, but are non-cancerous, it can alleviate the stress of people in such cases.
+Driving a car is a complex task, and it requires complete attention.[The National Highway Traffic Safety Administration (NHTSA)](https://www.nhtsa.gov/traffic-deaths-decreased-2018-still-36560-people-died) reported that 36,750 people died in motor vehicle crashes in 2018, and 12% of it was due to distracted driving. Fortunately, technology is adapting to help keep today’s drivers, I believe that computer vision can augment the efforts of the governments to prevent accidents caused by distracted driving. An app that can capture realtime images of the driver and alert them if they are distracted within seconds with the ease of a button click can prove to be beneficial by greatly bringing down mishaps.
 
 ## What the app will look like:
 ![png](./app_demo.png) 
