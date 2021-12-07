@@ -48,6 +48,8 @@ url_video: ""
 # Motivation(Why I chose this project):
 Driving a car is a complex task, and it requires complete attention.[The National Highway Traffic Safety Administration (NHTSA)](https://www.nhtsa.gov/traffic-deaths-decreased-2018-still-36560-people-died) reported that 36,750 people died in motor vehicle crashes in 2018, and 12% of it was due to distracted driving. Fortunately, technology is adapting to help keep today’s drivers, I believe that computer vision can augment the efforts of the governments to prevent accidents caused by distracted driving. An app that can capture realtime images of the driver and alert them if they are distracted within seconds with the ease of a button click can prove to be beneficial by greatly bringing down mishaps.
 
+![png](./deaths.jpg)
+
 ## What the app will look like:
 ![png](./one.jpg)
 ![png](./two.jpg) 
@@ -65,27 +67,36 @@ After classifying the image, the app will alert the driver or the passenger if h
 
 This layer creates a convolution kernel that is convolved with the layer input to produce a tensor of outputs. If use_bias is True, a bias vector is created and added to the outputs. Finally, if activation is not None, it is applied to the outputs as well.
 
-When using this layer as the first layer in a model, provide the keyword argument input_shape (tuple of integers, does not include the sample axis), e.g. input_shape=(128, 128, 3) for 128x128 RGB pictures in data_format="channels_last".
+When using this layer as the first layer in a model, provide the keyword argument input_shape (tuple of integers, does not include the sample axis), e.g. input_shape=(128, 128, 3) for 128x128 RGB pictures in data_format="channels_last". [source](https://keras.io/api/layers/convolution_layers/convolution2d/)
 
 Below is a GIF showing the working of the Conv2D layer:
 
 ![gif](./conv2d.gif)
-
-### MaxPool2D:
-Max pooling operation for 2D spatial data.
-
-Downsamples the input representation by taking the maximum value over the window defined by pool_size for each dimension along the features axis. The window is shifted by strides in each dimension. The resulting output when using "valid" padding option has a shape(number of rows or columns) of: output_shape = (input_shape - pool_size + 1) / strides)
-
-The resulting output shape when using the "same" padding option is: output_shape = input_shape / strides
-
-It returns a tensor of rank 4 representing the maximum pooled values. See above for output shape.
 
 ### BatchNormalization layer:
 Layer that normalizes its inputs.
 
 Batch normalization applies a transformation that maintains the mean output close to 0 and the output standard deviation close to 1.
 
-Importantly, batch normalization works differently during training and during inference.
+Importantly, batch normalization works differently during training and during inference. [source](https://keras.io/api/layers/normalization_layers/batch_normalization/)
+
+
+### MaxPool2D:
+Max pooling operation for 2D spatial data.
+
+Downsamples the input representation by taking the maximum value over the window defined by pool_size for each dimension along the features axis. The window is shifted by strides in each dimension. The resulting output when using "valid" padding option has a shape(number of rows or columns) of: output_shape = (input_shape - pool_size + 1) / strides)
+
+The resulting output shape when using the "same" padding option is: output_shape = input_shape / strides [source](https://keras.io/api/layers/pooling_layers/max_pooling2d/)
+
+### Dropout:
+
+The Dropout layer randomly sets input units to 0 with a frequency of rate at each step during training time, which helps prevent overfitting. Inputs not set to 0 are scaled up by 1/(1 - rate) such that the sum over all inputs is unchanged.
+
+### flatten:
+Flattens the input. Does not affect the batch size.
+
+### Dense:
+Dense implements the operation: output = activation(dot(input, kernel) + bias) where activation is the element-wise activation function passed as the activation argument, kernel is a weights matrix created by the layer, and bias is a bias vector created by the layer (only applicable if use_bias is True). These are all attributes of Dense.
 
 ## My Contribution:
 I designed my own classifier from scratch. below is the architecture for the CNN model:
@@ -160,6 +171,39 @@ Graph showing training and validation accuracy trend:
 Graph showing training and validation loss trend:
 
 ![png](./loss.png)
+
+
+### Dataset:
+
+we are given driver images, each taken in a car with a driver doing something in the car (texting, eating, talking on the phone, makeup, reaching behind, etc). our goal is to predict the likelihood of what the driver is doing in each picture. 
+
+[DATASET LINK](https://www.kaggle.com/c/state-farm-distracted-driver-detection/data) 
+
+### LOADING THE DATASET
+
+![png](./dataset.png)
+
+### SPLITTING INTO TRAIN AND TEST
+
+![png](./split.png)
+
+### TYPES OF CLASSIFICATION
+
+![png](./tyoes.png)
+
+![png](./types.png)
+
+### LOADING THE TEST IMAGE AND RESIZING AND GRAYSCALING
+
+![png](./loading_image.png)
+
+### CNN MODEL
+
+![png](./cnn.png)
+
+### ACCURACY 
+
+![png](./last.png)
 
 ## Challenges Faced:
 
