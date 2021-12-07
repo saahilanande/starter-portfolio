@@ -43,8 +43,6 @@ url_video: ""
 
 [_**Link to my Jupyter Notebook**_](https://github.com/saahilanande/datamining_term_project/blob/main/term-project.ipynb)
 
-[_**Link to YouTube video for the webapp**_](https://youtu.be/IWHKOQYbfP0)
-
 [_**Link to my Kaggle submission**_](https://www.kaggle.com/saahilanande/term-project)
 
 # Motivation(Why I chose this project):
@@ -157,11 +155,11 @@ Validation accuracy achieved: 99.15%
 
 Graph showing training and validation accuracy trend:
 
-![png](./Skin_Cancer_Detection_20_0.png)
+![png](./accuracy.png)
 
 Graph showing training and validation loss trend:
 
-![png](./Skin_Cancer_Detection_21_0.png)
+![png](./loss.png)
 
 ## Challenges Faced:
 
