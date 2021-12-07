@@ -39,7 +39,7 @@ url_video: ""
 
 [_**CLICK HERE to download the project proposal**_](./ProjectProposalforSkinCancerClassification.pdf)
 
-[_**CLICK HERE to download a zip folder containing test images of skin lesions**_](./SkinLesionTestImages.zip)
+[_**CLICK HERE to download a zip folder containing test images of drivers**_](./testimages.zip)
 
 [_**Link to my Jupyter Notebook**_](https://github.com/saahilanande/datamining_term_project/blob/main/term-project.ipynb)
 
