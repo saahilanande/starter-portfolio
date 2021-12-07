@@ -1,23 +1,23 @@
 ---
-title: Skin Cancer Classification
-summary: Skin Cancer Classification using CNN
+title: Distracted Driver Detection
+summary: Distracted Driver Detection using CNN
 tags:
 - Data Mining
 - CNN
-date: "2021-05-04"
+date: "2021-06-12"
 
 # Optional external URL for project (replaces project detail page).
 external_link:
 
 image:
-  -caption: ABCDE's of detecting skin cancer source https://www.hopehealthfnp.com/wp-content/uploads/2017/06/LSO-Skin-Cancer-Detection-Chart.png
+  -caption: Types of Distration https://www.hopehealthfnp.com/wp-content/uploads/2017/06/LSO-Skin-Cancer-Detection-Chart.png
   focal_point: Smart
 
 links:
 - icon: github
   icon_pack: fab
   name: Github Rep
-  url: https://github.com/rohanmandrekar/Skin-Cancer-Classification
+  url: https://github.com/saahilanande/datamining_term_project
 url_code: ""
 url_pdf: ""
 url_slides: ""
@@ -41,11 +41,11 @@ url_video: ""
 
 [_**CLICK HERE to download a zip folder containing test images of skin lesions**_](./SkinLesionTestImages.zip)
 
-[_**Link to my Jupyter Notebook**_](https://github.com/rohanmandrekar/Skin-Cancer-Classification/blob/main/Skin_Cancer_Detection.ipynb)
+[_**Link to my Jupyter Notebook**_](https://github.com/saahilanande/datamining_term_project/blob/main/term-project.ipynb)
 
 [_**Link to YouTube video for the webapp**_](https://youtu.be/IWHKOQYbfP0)
 
-[_**Link to my Kaggle submission**_](https://www.kaggle.com/rohanmandrekar/skin-cancer-classification-using-cnn-96-test-acc)
+[_**Link to my Kaggle submission**_](https://www.kaggle.com/saahilanande/term-project)
 
 # Motivation(Why I chose this project):
 According to [skincancer.org](https://www.skincancer.org/skin-cancer-information/skin-cancer-facts/) Skin cancer is the most common cancer in the United States and worldwide. 1 in 5 Americans will develop skin cancer by the age of 70. Early detection of skin cancer is vital to ensure successful treatment. An app that can self-diagnose any potential skin cancer within seconds with the ease of a button click can prove to be beneficial by greatly bringing down to cost and time for testing. Since the app also detects some diseases which appear like cancer, but are non-cancerous, it can alleviate the stress of people in such cases.
