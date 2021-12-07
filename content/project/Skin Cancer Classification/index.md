@@ -10,7 +10,7 @@ date: "2021-06-12"
 external_link:
 
 image:
-  -caption: Types of Distration https://www.hopehealthfnp.com/wp-content/uploads/2017/06/LSO-Skin-Cancer-Detection-Chart.png
+  -caption: Types of Distration https://www.supaquick.com/assets/news/distracteddrivingtypes.jpg
   focal_point: Smart
 
 links:
