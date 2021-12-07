@@ -37,7 +37,7 @@ url_video: ""
 
 {{< hl >}} _Switch to dark mode for better readability_ {{< /hl >}}
 
-[_**CLICK HERE to download the project proposal**_](./ProjectProposalforSkinCancerClassification.pdf)
+[_**CLICK HERE to download the project proposal**_](./PROJECT_PROPOSAL.pdf)
 
 [_**CLICK HERE to download a zip folder containing test images of drivers**_](./testimages.zip)
 
@@ -51,17 +51,15 @@ url_video: ""
 Driving a car is a complex task, and it requires complete attention.[The National Highway Traffic Safety Administration (NHTSA)](https://www.nhtsa.gov/traffic-deaths-decreased-2018-still-36560-people-died) reported that 36,750 people died in motor vehicle crashes in 2018, and 12% of it was due to distracted driving. Fortunately, technology is adapting to help keep today’s drivers, I believe that computer vision can augment the efforts of the governments to prevent accidents caused by distracted driving. An app that can capture realtime images of the driver and alert them if they are distracted within seconds with the ease of a button click can prove to be beneficial by greatly bringing down mishaps.
 
 ## What the app will look like:
-![png](./app_demo.png) 
+![png](./one.jpg)
+![png](./two.jpg) 
 
 ## Features supported by the App:
-User can click a picture of his/her infected skin region and upload it on the app. 
-The app will classify the disease into one of the following: actinic keratoses and 
-intraepithelial carcinoma, basal cell carcinoma, benign keratosis-like lesions, 
-dermatofibroma, melanocytic nevi, pyogenic granulomas and haemorrhage, 
-and melanoma.
-After classifying the disease, the app can also show some information about 
-the disease, and suggest the user to contact a dermatologist as soon as 
-possible
+The app will allow user to upload a photo or capture real time photos of the driver, classifying it as distracted or not distracted within seconds with the ease of a button click
+
+The app will classify the picture into one of the following normal driving, texting, talking on the phone, operating the radio, drinking ,reaching behind, hair and makeup , talking to passenger.
+
+After classifying the image, the app will alert the driver or the passenger if he is distracted and pay attention on the road.
 
 ## Explanation of a few algorithms:
 ### Conv2D:
@@ -94,75 +92,68 @@ Importantly, batch normalization works differently during training and during in
 ## My Contribution:
 I designed my own classifier from scratch. below is the architecture for the CNN model:
 
-    Model: "sequential"
+       Model: "sequential"
     _________________________________________________________________
     Layer (type)                 Output Shape              Param #   
     =================================================================
-    conv2d (Conv2D)              (None, 28, 28, 16)        448       
+    conv2d (Conv2D)              (None, 62, 62, 64)        640       
     _________________________________________________________________
-    max_pooling2d (MaxPooling2D) (None, 14, 14, 16)        0         
+    batch_normalization (BatchNo (None, 62, 62, 64)        256       
     _________________________________________________________________
-    batch_normalization (BatchNo (None, 14, 14, 16)        64        
+    max_pooling2d (MaxPooling2D) (None, 31, 31, 64)        0         
     _________________________________________________________________
-    conv2d_1 (Conv2D)            (None, 12, 12, 32)        4640      
+    dropout (Dropout)            (None, 31, 31, 64)        0         
     _________________________________________________________________
-    conv2d_2 (Conv2D)            (None, 10, 10, 64)        18496     
+    conv2d_1 (Conv2D)            (None, 31, 31, 128)       73856     
     _________________________________________________________________
-    max_pooling2d_1 (MaxPooling2 (None, 5, 5, 64)          0         
+    batch_normalization_1 (Batch (None, 31, 31, 128)       512       
     _________________________________________________________________
-    batch_normalization_1 (Batch (None, 5, 5, 64)          256       
+    max_pooling2d_1 (MaxPooling2 (None, 16, 16, 128)       0         
     _________________________________________________________________
-    conv2d_3 (Conv2D)            (None, 3, 3, 128)         73856     
+    dropout_1 (Dropout)          (None, 16, 16, 128)       0         
     _________________________________________________________________
-    conv2d_4 (Conv2D)            (None, 1, 1, 256)         295168    
+    conv2d_2 (Conv2D)            (None, 16, 16, 256)       295168    
     _________________________________________________________________
-    flatten (Flatten)            (None, 256)               0         
+    batch_normalization_2 (Batch (None, 16, 16, 256)       1024      
     _________________________________________________________________
-    dropout (Dropout)            (None, 256)               0         
+    max_pooling2d_2 (MaxPooling2 (None, 8, 8, 256)         0         
     _________________________________________________________________
-    dense (Dense)                (None, 256)               65792     
+    dropout_2 (Dropout)          (None, 8, 8, 256)         0         
     _________________________________________________________________
-    batch_normalization_2 (Batch (None, 256)               1024      
+    flatten (Flatten)            (None, 16384)             0         
     _________________________________________________________________
-    dropout_1 (Dropout)          (None, 256)               0         
+    dense (Dense)                (None, 512)               8389120   
     _________________________________________________________________
-    dense_1 (Dense)              (None, 128)               32896     
+    batch_normalization_3 (Batch (None, 512)               2048      
     _________________________________________________________________
-    batch_normalization_3 (Batch (None, 128)               512       
+    dropout_3 (Dropout)          (None, 512)               0         
     _________________________________________________________________
-    dense_2 (Dense)              (None, 64)                8256      
+    dense_1 (Dense)              (None, 128)               65664     
     _________________________________________________________________
-    batch_normalization_4 (Batch (None, 64)                256       
+    dropout_4 (Dropout)          (None, 128)               0         
     _________________________________________________________________
-    dropout_2 (Dropout)          (None, 64)                0         
-    _________________________________________________________________
-    dense_3 (Dense)              (None, 32)                2080      
-    _________________________________________________________________
-    batch_normalization_5 (Batch (None, 32)                128       
-    _________________________________________________________________
-    dense_4 (Dense)              (None, 7)                 231       
+    dense_2 (Dense)              (None, 10)                1290      
     =================================================================
-    Total params: 504,103
-    Trainable params: 502,983
-    Non-trainable params: 1,120
-    _________________________________________________________________
+    Total params: 8,829,578
+    Trainable params: 8,827,658
+    Non-trainable params: 1,920
+        _________________________________________________________________
     
 
-Test Accuracy achieved: 96.01%
+Test Accuracy achieved: 99.15%
 
 ```python
-x_test=np.array(x_test).reshape(-1,28,28,3)
-loss, acc = model.evaluate(x_test, y_test, verbose=2)
+score = cnnmodel.evaluate(x_test, y_test, verbose=1)
 ```
 
-    63/63 - 1s - loss: 0.1790 - accuracy: 0.9601
+    loss: 0.0308 - accuracy: 0.9915
 
 Train Accuracy achieved: 99.79%
 
-Validation accuracy achieved: 98.61% 
+Validation accuracy achieved: 99.15% 
 
-    Epoch 50/50
-    235/235 [==============================] - 2s 9ms/step - loss: 0.0068 - accuracy: 0.9979 - val_loss: 0.0518 - val_accuracy: 0.9861  
+    Epoch 5/5
+    359/359 [==============================] - 5s 15ms/step - loss: 0.1366 - accuracy: 0.9569 - val_loss: 0.0308 - val_accuracy: 0.9915
 
 Graph showing training and validation accuracy trend:
 
@@ -192,17 +183,17 @@ After experimenting with many different architectures for the CNN model I realis
 
 ### References:
 
-[1] https://www.kaggle.com/dhruv1234/ham10000-skin-disease-classification
+[1] https://www.kaggle.com/ismailchaida/cnn-to-detect-driver-actions
 
-[2] https://github.com/rohanmandrekar/Cifar-10-/blob/master/best_attempt%28model7%29.ipynb
+[2] https://www.kaggle.com/pierrelouisdanieau/computer-vision-tips-to-increase-accuracy
 
-[3] https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000
+[3] https://towardsdatascience.com/convolution-neural-network-for-image-processing-using-keras-dc3429056306
 
 [4] https://keras.io/api/layers/normalization_layers/batch_normalization/
 
 [5] https://keras.io/api/layers/convolution_layers/convolution2d/
 
-[6] https://github.com/AxelThevenot/GIF_convolutions
+[6] https://www.analyticsvidhya.com/blog/2021/06/building-a-convolutional-neural-network-using-tensorflow-keras/
 
 [7] https://keras.io/api/layers/pooling_layers/max_pooling2d/
 
