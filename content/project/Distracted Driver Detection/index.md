@@ -45,6 +45,8 @@ url_video: ""
 
 [_**Link to my Kaggle submission**_](https://www.kaggle.com/saahilanande/term-project)
 
+[_**Link to my Video**_](https://www.youtube.com/watch?v=zI6SKHZnDoY)
+
 # Motivation(Why I chose this project):
 Driving a car is a complex task, and it requires complete attention.[The National Highway Traffic Safety Administration (NHTSA)](https://www.nhtsa.gov/traffic-deaths-decreased-2018-still-36560-people-died) reported that 36,750 people died in motor vehicle crashes in 2018, and 12% of it was due to distracted driving. Fortunately, technology is adapting to help keep today’s drivers, I believe that computer vision can augment the efforts of the governments to prevent accidents caused by distracted driving. An app that can capture realtime images of the driver and alert them if they are distracted within seconds with the ease of a button click can prove to be beneficial by greatly bringing down mishaps.
 
