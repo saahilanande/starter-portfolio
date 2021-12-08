@@ -148,6 +148,7 @@ I designed my own classifier from scratch. below is the architecture for the CNN
     Non-trainable params: 1,920
         _________________________________________________________________
     
+![png](./Picture1.png)
 
 Test Accuracy achieved: 99.15%
 
@@ -211,16 +212,7 @@ we are given driver images, each taken in a car with a driver doing something in
 
 ## Challenges Faced:
 
-Initially after training my model I noticed that the validation accuracy was too low (mid 60s). I then tried adjusting the learning rate to fix it, but got no great change.
-I then browsed other notebooks posted on Kaggle for this particular dataset. I came accross [Dhruv's](https://www.kaggle.com/dhruv1234/ham10000-skin-disease-classification) notebook which explained that the frequency of the classes were imbalanced (class melanocytic nevi had a far greater frequency than others). To fix this I had to use RandomOverSampler to make the frequency of the classes more balanced. Below are 2 graphs showing the frequncy of the classes before and after random over sampling.
-
-Before random over sampling:
-![png](./Skin_Cancer_Detection_12_2.png)
-
-After random over sampling:
-![png](./Skin_Cancer_Detection_14_2.png)
-
-Doing this resulted in a significant jump in accuracy
+Initially after training my model I noticed that the validation accuracy was too low (mid 60s). I then browsed other notebooks posted on Kaggle for this particular dataset. I came accross [Louis's](https://www.kaggle.com/pierrelouisdanieau/computer-vision-tips-to-increase-accuracy) notebook which explained that the data needs preprocessing and resizing. Following that tutorial i resized the images to 64 x 64 and converted it to grayscale. Also this [Tutorial](https://www.youtube.com/watch?v=wJ60luXn5Ns) also introduced  me to batch normilization. Add batch normilization and pre processing the data resulted in a significant jump in accuracy
 
 ## Experiments and findings:
 After experimenting with many different architectures for the CNN model I realised that adding the BatchNormalization layer after each Dense, and MaxPooling2D layer can help increase the validation accuracy. Addition of Dropout layers can help prevent overfitting.  
