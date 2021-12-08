@@ -152,7 +152,7 @@ I designed my own classifier from scratch. below is the architecture for the CNN
     
 ![png](./Picture1.jpg)
 
-Test Accuracy achieved: 99.15%
+Test Accuracy achieved: 99.24%
 
 ```python
 score = cnnmodel.evaluate(x_test, y_test, verbose=1)
@@ -160,12 +160,9 @@ score = cnnmodel.evaluate(x_test, y_test, verbose=1)
 
     loss: 0.0308 - accuracy: 0.9915
 
-Train Accuracy achieved: 99.79%
-
-Validation accuracy achieved: 99.15% 
 
     Epoch 5/5
-    359/359 [==============================] - 5s 15ms/step - loss: 0.1366 - accuracy: 0.9569 - val_loss: 0.0308 - val_accuracy: 0.9915
+    359/359 [==============================] - 5s 15ms/step - loss: 0.1366 - accuracy: 0.9569 - val_loss: 0.0308 - val_accuracy: 0.9924
 
 Graph showing training and validation accuracy trend:
 
