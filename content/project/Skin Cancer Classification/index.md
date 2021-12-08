@@ -193,6 +193,10 @@ we are given driver images, each taken in a car with a driver doing something in
 
 ![png](./types.png)
 
+### TYPE Data Visualization
+
+![png](./type_graph.png)
+
 ### LOADING THE TEST IMAGE AND RESIZING AND GRAYSCALING
 
 ![png](./loading_image.png)
