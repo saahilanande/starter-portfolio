@@ -148,7 +148,7 @@ I designed my own classifier from scratch. below is the architecture for the CNN
     Non-trainable params: 1,920
         _________________________________________________________________
     
-![png](./Picture1.png)
+![png](./Picture1.jpg)
 
 Test Accuracy achieved: 99.15%
 
@@ -234,4 +234,3 @@ After experimenting with many different architectures for the CNN model I realis
 [6] https://www.analyticsvidhya.com/blog/2021/06/building-a-convolutional-neural-network-using-tensorflow-keras/
 
 [7] https://keras.io/api/layers/pooling_layers/max_pooling2d/
-
