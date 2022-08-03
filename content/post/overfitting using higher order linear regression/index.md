@@ -42,13 +42,13 @@ categories:
 
 {{< hl >}} _Switch to dark mode for better readability_ {{< /hl >}}
 
-### What is overfitting? lolololololololo
+### What is overfitting?
 
 Overfitting is a concept in data science, which occurs when a statistical model fits exactly against its training data. When this happens, the algorithm unfortunately cannot perform accurately against unseen data, defeating its purpose. [_Source_](https://www.ibm.com/cloud/learn/overfitting)
 
 ### How is overfitting different from underfitting?
 
- okay okay If overtraining or model complexity results in overfitting, then a logical prevention response would be either to pause training process earlier, also known as, “early stopping” or to reduce complexity in the model by eliminating less relevant inputs. However, if you pause too early or exclude too many important features, you may encounter the opposite problem, and instead, you may underfit your model. Underfitting occurs when the model has not trained for enough time or the input variables are not significant enough to determine a meaningful relationship between the input and output variables.  [_Source_](https://www.ibm.com/cloud/learn/overfitting)
+ If overtraining or model complexity results in overfitting, then a logical prevention response would be either to pause training process earlier, also known as, “early stopping” or to reduce complexity in the model by eliminating less relevant inputs. However, if you pause too early or exclude too many important features, you may encounter the opposite problem, and instead, you may underfit your model. Underfitting occurs when the model has not trained for enough time or the input variables are not significant enough to determine a meaningful relationship between the input and output variables.  [_Source_](https://www.ibm.com/cloud/learn/overfitting)
 
 ![jpg](./model-over-fitting.jpg)
 [_Source_](https://www.ibm.com/cloud/learn/overfitting)
