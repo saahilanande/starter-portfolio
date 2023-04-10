@@ -14,7 +14,7 @@ organizations:
   url: https://www.uta.edu/
 
 # Short bio (displayed in user profile at end of posts)
-bio: A Master of Science in Computer Science candidate with a knack for problem-solving, passionate about developing solutions using and learning the latest object-oriented programming techniques and software engineering methodologies.
+bio: A Master of Science in Computer Science candidate with a knack for problem-solving, passionate about developing solutions using and learning the latest object-oriented programming techniques and software engineering methodologies.Extensive experience in developing web applications and microservices in MERN, PERN stack and Spring boot.
 
 # Interests to show in About widget
 interests:
@@ -27,7 +27,9 @@ education:
   courses:
   - course: MS in Computer Science
     institution: The University of Texas at Arlington
-    year: 2021-ongoing
+    GPA: 4.0/4.0
+    year: 2021-2022
+
   - course: BE in Computer Engineering
     institution: University of Mumbai
     year: 2014-2018
@@ -45,7 +47,7 @@ social:
   link: https://twitter.com/AnandeSaahil/
 - icon: github
   icon_pack: fab
-  link: https://github.com/gcushen
+  link: https://github.com/saahilanande
 - icon: linkedin
   icon_pack: fab
   link: https://www.linkedin.com/in/saahilanande21/
@@ -64,6 +66,6 @@ email: ""
 highlight_name: false
 ---
 
-A Master of Science in Computer Science candidate with a knack for problem-solving, passionate about developing solutions using and learning the latest object-oriented programming techniques and software engineering methodologies.
+A Master of Science in Computer Science candidate with a knack for problem-solving, passionate about developing solutions using and learning the latest object-oriented programming techniques and software engineering methodologies. Extensive experience in developing web applications and microservices in MERN, PERN stack and Spring boot.
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
