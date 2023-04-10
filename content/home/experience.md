@@ -32,13 +32,23 @@ experience:
   
             • Proctoring 60+ students, exam papers, and weekly assignment evaluation
  
-  - title: Delivery Engineer
+  - title: Full Stack Developer
     company: CellBeans Healthcare Informatics
-    company_url: 
+    company_url: http://www.cellbeans.com/
     location: Pune, India
     date_start: '2020-02-01'
     date_end: '2020-09-01'
-    description: Implementation and setup of hospital management system on client site, managing and developing hospital database.
+    description: |2-
+
+        • Developed dashboards and Single Page Applications using React reusable components and Utilized react hooks and express Js to build microservices in Node JS while using NPM as package manager.
+
+        • Responsible for developing and maintaining 5 Microservices from scratch using Spring Boot enabled REST API
+
+        • Employed SLF4j to logs and errors and configured CloudWatch tool for performance monitor
+
+        • Utilized Elastic Container Service and Docker for the runtime environment of the CI/CD system to build and deploy to AWS EC2 Instance
+
+        • Tech: Java 1.8, Spring Boot, Angular, jQuery, TypeScript, Node JS, NPM, Express.js, PostgreSQL, DynamoDB, Kafka,Splunk, spock framework, Karma, SLF4j, JBoss, Maven, Git, CloudWatch, Docker, AWS Lambda, Elastic Container Service, EC2
 
   
   - title: Junior Software developer
@@ -50,11 +60,11 @@ experience:
     description: |2-
 
         
-        • Assisted in projects such as Team-Travel Expense Administration & Management, “TAC” and “Ras Al Khaimah Department of Civil Aviation (RAKDCA) given to the SharePoint department
+        • Employed a scalable microservice architecture with Spring Boot-based services that communicated with each other via a combination of RESTful APIs and Apache Kafka message brokers
 
-        • Learnt and used technologies such as the SharePoint Framework, Client Side Object Module, Server Side Object Module, Rest apis
+        • Used PostgreSQL as database and involved in the development of PL/SQL backend implementation
 
-        • Worked on project “Task management system” which is based on scheduling and managing systems trainings and its attendance using SharePoint timerjob and WSP.
+        • Tech: Java 1.6/1.8, JavaScript, Bootstrap, Spring Boot, Spring Actuator, AWS Cloud, RabbitMQ, JMS, Slf4j, Junit, Gradle, PostgreSQL.
 
 design:
   columns: '2'
