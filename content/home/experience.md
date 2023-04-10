@@ -27,7 +27,7 @@ experience:
     company_url: 
     location: Arlington, Texas
     date_start: '2021-09-01'
-    date_end: ''
+    date_end: '2022-12-30'
     description: |2-
   
             • Proctoring 60+ students, exam papers, and weekly assignment evaluation
