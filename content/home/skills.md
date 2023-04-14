@@ -53,7 +53,7 @@ feature:
   name: Cloud Computing
 
 - description: Used JavaScript libraries to simplify Front-end complexities such as jQuery, Typescript, D3js.
-  icon: js fa-brands
+  icon: js fa-brands fa-beat
   icon_pack: fab
   name: Web Developement
 

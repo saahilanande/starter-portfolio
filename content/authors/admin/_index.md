@@ -14,7 +14,7 @@ organizations:
   url: https://www.uta.edu/
 
 # Short bio (displayed in user profile at end of posts)
-bio: A Master of Science in Computer Science Graduate with a knack for problem-solving, passionate about developing solutions using and learning the latest object-oriented programming techniques and software engineering methodologies with Extensive experience in developing full stack web applications and microservices in MERN, PERN stack and Spring boot.
+bio: A Master of Science in Computer Science Graduate with a knack for problem-solving, passionate about developing solutions using and learning the latest object-oriented programming techniques and software engineering methodologies with Extensive experience in developing full stack applications and microservices in MERN, PERN stack and Spring boot.
 
 # Interests to show in About widget
 interests:
@@ -37,7 +37,6 @@ education:
     institution: University of Mumbai
     year: 2014-2018
 
-  certifications:
   - name: AWS Certified Developer – Associate
     url: https://www.credly.com/badges/049e8234-4a8b-47c4-9e1d-8cb193cad538/public_url
 
@@ -77,6 +76,6 @@ email: ""
 highlight_name: false
 ---
 
-A Master of Science in Computer Science candidate with a knack for problem-solving, passionate about developing solutions using and learning the latest object-oriented programming techniques and software engineering methodologies. Extensive experience in developing web applications and microservices in MERN, PERN stack and Spring boot.
+A Master of Science in Computer Science Graduate with a knack for problem-solving, passionate about developing solutions using and learning the latest object-oriented programming techniques and software engineering methodologies with Extensive experience in developing full stack applications and microservices in MERN, PERN stack and Spring boot.
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
