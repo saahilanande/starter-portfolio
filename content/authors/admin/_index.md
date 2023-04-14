@@ -28,15 +28,15 @@ interests:
 # Education to show in About widget
 education:
   courses:
-  - course: MS in Computer Science
+  - course: MS in Computer Science GPA-4.0/4.0
     institution: The University of Texas at Arlington
-    GPA: 4.0/4.0
     year: 2021-2022
 
   - course: BE in Computer Engineering
     institution: University of Mumbai
     year: 2014-2018
 
+Certification:
   - name: AWS Certified Developer – Associate
     url: https://www.credly.com/badges/049e8234-4a8b-47c4-9e1d-8cb193cad538/public_url
 
