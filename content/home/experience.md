@@ -30,7 +30,11 @@ experience:
     date_end: '2022-12-30'
     description: |2-
   
-            • Proctoring 60+ students, exam papers, and weekly assignment evaluation
+          •  Teaching assistant for Design and Analysis of Algorithms, Cloud Computing and Machine learning at UTA.
+
+          • Prepare, present and guide students through Algorithms based assignments, Creatively instill Algorithms foundations in students for future computer science classes, Proctoring 55+ students and grading exam paper
+          
+          • Respond to students’ emails quickly and respectfully with suggestions and actions necessary to complete labs
  
   - title: Full Stack Developer
     company: CellBeans Healthcare Informatics

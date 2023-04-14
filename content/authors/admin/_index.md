@@ -14,13 +14,16 @@ organizations:
   url: https://www.uta.edu/
 
 # Short bio (displayed in user profile at end of posts)
-bio: A Master of Science in Computer Science candidate with a knack for problem-solving, passionate about developing solutions using and learning the latest object-oriented programming techniques and software engineering methodologies.Extensive experience in developing web applications and microservices in MERN, PERN stack and Spring boot.
+bio: A Master of Science in Computer Science Graduate with a knack for problem-solving, passionate about developing solutions using and learning the latest object-oriented programming techniques and software engineering methodologies with Extensive experience in developing full stack web applications and microservices in MERN, PERN stack and Spring boot.
 
 # Interests to show in About widget
 interests:
 - Artificial Intelligence
 - Cloud Computing
 - Big data
+- Web Developement
+- Front-end Developement
+- Back-end Development 
 
 # Education to show in About widget
 education:

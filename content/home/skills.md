@@ -23,8 +23,8 @@ feature:
   name: JAVA
 
 - description: Developed Single Page Applications using React 16 features such as react routers, Hooks, async & wait and libraries such as redux, Axios, Zod, Nextjs, Chakra UI.
-  icon: "react"
-  icon_pack: "custom"
+  icon: react
+  icon_pack: fab
   name: REACT
 
 - description: Used Angular6 to build high-quality, scalable and reusable components and Front-end solution.
@@ -49,7 +49,7 @@ feature:
 
 - description: Worked with Amazon AWS and Azure Cloud Services, (EC2, S3, ECS, Beanstalk, EKS, CloudWatch, VPC, Azure App Service, Azure VM)
   icon: cloud
-  icon_pack: fab
+  icon_pack: fas
   name: Cloud Computing
 
 - description: Used JavaScript libraries to simplify Front-end complexities such as jQuery, Typescript, D3js.
