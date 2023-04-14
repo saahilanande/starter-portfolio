@@ -18,11 +18,15 @@ subtitle:
 feature:
 feature:
 - description:
-  icon: java
+  icon: java fa-fade
   icon_pack: fab
   name: JAVA 1.8 & 1.11
 - description:
-  icon: react beat-fade
+  icon: react fa-beat-fade
+  icon_pack: fab
+  name: REACT
+- description:
+  icon: angular fa-beat
   icon_pack: fab
   name: REACT
 - description:
