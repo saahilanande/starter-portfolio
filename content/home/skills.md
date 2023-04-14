@@ -23,8 +23,8 @@ feature:
   name: JAVA
 
 - description: Developed Single Page Applications using React 16 features such as react routers, Hooks, async & wait and libraries such as redux, Axios, Zod, Nextjs, Chakra UI.
-  icon: react fa-brands fa-beat-fade
-  icon_pack: fab
+  icon: react
+  icon_pack: custom
   name: REACT
 
 - description: Used Angular6 to build high-quality, scalable and reusable components and Front-end solution.
@@ -34,22 +34,22 @@ feature:
 
 - description: Expertise in Node.js frameworks such as Express.js for building web applications and Socket.io for real-time communication, also proficient in using Mongoose for working with MongoDB databases and OAuth 2.0 for authentication.
   icon: node
-  icon_pack: fas
+  icon_pack: fab
   name: NODE JS
 
-- description: Strong knowledge of SQL, PL/SQL and with databases like Oracle, MySQL, and PostgreSQL and in In-Memory Databases like Redis and Memcached
+- description: Strong knowledge of SQL, PL/SQL and with databases like Oracle, MySQL, and PostgreSQL and in In-Memory Databases like Redis and Memcached.
   icon: database
-  icon_pack: fab
+  icon_pack: fas
   name: SQL & NO SQL 
 
-- description:
+- description: Developed various academic projects using Python libraries such as NumPy and Pandas for data manipulation and analysis, Matplotlib for data visualization, and Scikit-learn for ML modeling, also proficient in using deep learning frameworks such as TensorFlow and Keras for neural network development
   icon: python
   icon_pack: fab
   name: PYTHON
 
 - description: Worked with Amazon AWS and Azure Cloud Services, (EC2, S3, ECS, Beanstalk, EKS, CloudWatch, VPC, Azure App Service, Azure VM)
   icon: cloud
-  icon_pack: fas
+  icon_pack: fab
   name: Cloud Computing
 
 - description: Used JavaScript libraries to simplify Front-end complexities such as jQuery, Typescript, D3js.
@@ -73,12 +73,12 @@ feature:
 #  name: "Emojiness"
 #  description: "100%"  
 
-# Uncomment to use custom SVG icons.
-# Place your custom SVG icon in `assets/media/icons/`.
-# Reference the SVG icon name (without `.svg` extension) in the `icon` field.
-# For example, reference `assets/media/icons/xyz.svg` as `icon: 'xyz'`
-#- icon: "your-custom-icon-name"
-#  icon_pack: "custom"
-#  name: "Surfing"
-#  description: "90%"
+Uncomment to use custom SVG icons.
+Place your custom SVG icon in `assets/media/icons/`.
+Reference the SVG icon name (without `.svg` extension) in the `icon` field.
+For example, reference `assets/media/icons/xyz.svg` as `icon: 'xyz'`
+- icon: "your-custom-icon-name"
+ icon_pack: "custom"
+ name: "Surfing"
+ description: "90%"
 ---
