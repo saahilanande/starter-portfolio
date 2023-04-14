@@ -18,6 +18,18 @@ subtitle:
 feature:
 feature:
 - description:
+  icon: java
+  icon_pack: fab
+  name: JAVA 1.8 & 1.11
+- description:
+  icon: https://fontawesome.com/icons/react?f=brands&s=solid&an=beat-fade
+  icon_pack: fab
+  name: REACT
+- description:
+  icon: node
+  icon_pack: fab
+  name: NODE JS   
+- description:
   icon: python
   icon_pack: fab
   name: Python
