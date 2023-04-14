@@ -22,7 +22,7 @@ feature:
   icon_pack: fab
   name: JAVA 1.8 & 1.11
 - description:
-  icon: https://fontawesome.com/icons/react?f=brands&s=solid&an=beat-fade
+  icon: react beat-fade
   icon_pack: fab
   name: REACT
 - description:
