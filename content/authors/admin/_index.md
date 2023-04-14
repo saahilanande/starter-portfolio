@@ -13,6 +13,12 @@ organizations:
 - name: The University of Texas at Arlington
   url: https://www.uta.edu/
 
+- name: AWS Certified Developer – Associate
+  url: https://www.credly.com/badges/049e8234-4a8b-47c4-9e1d-8cb193cad538/public_url
+
+- name: React 18 for Beginners
+  url:  uploads/react.pdf
+
 # Short bio (displayed in user profile at end of posts)
 bio: A Master of Science in Computer Science Graduate with a knack for problem-solving, passionate about developing solutions using and learning the latest object-oriented programming techniques and software engineering methodologies with Extensive experience in developing full stack applications and microservices in MERN, PERN stack and Spring boot.
 
@@ -28,20 +34,14 @@ interests:
 # Education to show in About widget
 education:
   courses:
-  - course: MS in Computer Science GPA-4.0/4.0
+  - course: MS in Computer Science GPA- 4.0/4.0
     institution: The University of Texas at Arlington
     year: 2021-2022
 
   - course: BE in Computer Engineering
     institution: University of Mumbai
     year: 2014-2018
-
-Certification:
-  - name: AWS Certified Developer – Associate
-    url: https://www.credly.com/badges/049e8234-4a8b-47c4-9e1d-8cb193cad538/public_url
-
-  - name: React 18 for Beginners
-    url:  uploads/react.pdf
+  
 
 
 # Social/Academic Networking
