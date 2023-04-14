@@ -16,7 +16,7 @@ organizations:
 - name: AWS Certified Developer – Associate
   url: https://www.credly.com/badges/049e8234-4a8b-47c4-9e1d-8cb193cad538/public_url
 
-- name: React 18 for Beginners
+- name: React 18 Certified Developer - Beginner
   url:  uploads/react.pdf
 
 # Short bio (displayed in user profile at end of posts)
