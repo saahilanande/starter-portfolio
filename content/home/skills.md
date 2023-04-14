@@ -16,43 +16,56 @@ subtitle:
 # - Add/remove as many `feature` blocks below as you like.
 # - For available icons, see: https://wowchemy.com/docs/page-builder/#icons
 feature:
-- description:
-  icon: react
-  icon_pack: fab
-  name: ANGULAR
 feature:
-- description:
+- description: Hands on experience developing robust backend application and microservices RESTFUL API using Java 1.8 and 1.11 technologies and framework such as Spring Boot, Hibernate, JUnit, Spring Data with build automation tools such as Maven and Gradle.
   icon: java
   icon_pack: fab
   name: JAVA
-- description:
-  icon: react
-  icon_pack: fab
-  name: ANGULAR
-- description:
-  icon: angular
+
+- description: Developed Single Page Applications using React 16 features such as react routers, Hooks, async & wait and libraries such as redux, Axios, Zod, Nextjs, Chakra UI.
+  icon: react fa-brands fa-beat-fade
   icon_pack: fab
   name: REACT
-- description:
-  icon: node
+
+- description: Used Angular6 to build high-quality, scalable and reusable components and Front-end solution.
+  icon: angular
   icon_pack: fab
+  name: ANGULAR
+
+- description: Expertise in Node.js frameworks such as Express.js for building web applications and Socket.io for real-time communication, also proficient in using Mongoose for working with MongoDB databases and OAuth 2.0 for authentication.
+  icon: node
+  icon_pack: fas
   name: NODE JS
-- description:
+
+- description: Strong knowledge of SQL, PL/SQL and with databases like Oracle, MySQL, and PostgreSQL and in In-Memory Databases like Redis and Memcached
   icon: database
   icon_pack: fab
-  name: SQL & NO SQL   
+  name: SQL & NO SQL 
+
 - description:
   icon: python
   icon_pack: fab
   name: PYTHON
-- description:
+
+- description: Worked with Amazon AWS and Azure Cloud Services, (EC2, S3, ECS, Beanstalk, EKS, CloudWatch, VPC, Azure App Service, Azure VM)
   icon: cloud
   icon_pack: fas
   name: Cloud Computing
-- description:
-  icon: html5
+
+- description: Used JavaScript libraries to simplify Front-end complexities such as jQuery, Typescript, D3js.
+  icon: square-js
   icon_pack: fab
   name: Web Developement
+
+- description: Deployed application using Docker tools such as Docker Compose for multi-container application deployments and Docker Swarm for orchestration, also proficient in using Kubernetes for managing containerized applications."
+  icon: docker
+  icon_pack: fab
+  name: DOCKER
+
+- description: Used GIT as source code collaborator and GitHub for maintaining code and documentation
+  icon: git-alt
+  icon_pack: fab
+  name: GIT
 
 # Uncomment to use emoji icons.
 #- icon: ":smile:"
