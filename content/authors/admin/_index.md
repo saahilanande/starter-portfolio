@@ -37,6 +37,14 @@ education:
     institution: University of Mumbai
     year: 2014-2018
 
+  certifications:
+  - name: AWS Certified Developer – Associate
+    url: https://www.credly.com/badges/049e8234-4a8b-47c4-9e1d-8cb193cad538/public_url
+
+  - name: React 18 for Beginners
+    url:  uploads/react.pdf
+
+
 # Social/Academic Networking
 # For available icons, see: https://wowchemy.com/docs/getting-started/page-builder/#icons
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
