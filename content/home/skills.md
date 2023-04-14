@@ -16,27 +16,35 @@ subtitle:
 # - Add/remove as many `feature` blocks below as you like.
 # - For available icons, see: https://wowchemy.com/docs/page-builder/#icons
 feature:
+- description:
+  icon: react
+  icon_pack: fab
+  name: ANGULAR
 feature:
 - description:
-  icon: java fa-fade
+  icon: java
   icon_pack: fab
-  name: JAVA 1.8 & 1.11
+  name: JAVA
 - description:
-  icon: react fa-beat-fade
+  icon: react
   icon_pack: fab
-  name: REACT
+  name: ANGULAR
 - description:
-  icon: angular fa-beat
+  icon: angular
   icon_pack: fab
   name: REACT
 - description:
   icon: node
   icon_pack: fab
-  name: NODE JS   
+  name: NODE JS
+- description:
+  icon: database
+  icon_pack: fab
+  name: SQL & NO SQL   
 - description:
   icon: python
   icon_pack: fab
-  name: Python
+  name: PYTHON
 - description:
   icon: cloud
   icon_pack: fas
