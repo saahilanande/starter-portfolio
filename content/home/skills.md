@@ -23,8 +23,8 @@ feature:
   name: JAVA
 
 - description: Developed Single Page Applications using React 16 features such as react routers, Hooks, async & wait and libraries such as redux, Axios, Zod, Nextjs, Chakra UI.
-  icon: react
-  icon_pack: custom
+  icon: "react"
+  icon_pack: "custom"
   name: REACT
 
 - description: Used Angular6 to build high-quality, scalable and reusable components and Front-end solution.
@@ -77,8 +77,8 @@ feature:
 # Place your custom SVG icon in `assets/media/icons/`.
 # Reference the SVG icon name (without `.svg` extension) in the `icon` field.
 # For example, reference `assets/media/icons/xyz.svg` as `icon: 'xyz'`
-- icon: "your-custom-icon-name"
- icon_pack: "custom"
- name: "Surfing"
- description: "90%"
+# - icon: "your-custom-icon-name"
+#  icon_pack: "custom"
+#  name: "Surfing"
+#  description: "90%"
 ---
