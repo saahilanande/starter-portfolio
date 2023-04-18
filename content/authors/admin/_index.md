@@ -70,7 +70,7 @@ social:
   link: uploads/resume.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: ""
+email: "saahilanande21@gmail.com"
 
 # Highlight the author in author lists? (true/false)
 highlight_name: false
